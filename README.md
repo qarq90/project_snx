@@ -12,10 +12,10 @@ SnX offers a seamless user experience thanks to its integration with Next.js, pr
 
 ## How It Works
 
-# Explore Outfits: Browse through a diverse range of 3D outfits and accessories.
-# Customize: Mix and match clothing items, colors, and textures to create your perfect ensemble.
-# Preview: Visualize your customized outfit from every angle with realistic 3D rendering.
-# Save and Share: Save your creations and share them with friends on social media.
+Explore Outfits: Browse through a diverse range of 3D outfits and accessories.
+Customize: Mix and match clothing items, colors, and textures to create your perfect ensemble.
+Preview: Visualize your customized outfit from every angle with realistic 3D rendering.
+Save and Share: Save your creations and share them with friends on social media.
 
 
 ## Built for Innovation
