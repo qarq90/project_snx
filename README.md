@@ -1,13 +1,13 @@
 # SnX: 3D Outfit Customizer
 Welcome to SnX, your ultimate destination for exploring and customizing 3D outfits like never before! SnX revolutionizes the way you interact with fashion, offering a seamless and immersive experience powered by cutting-edge web technologies.
 
-# Explore Limitless Possibilities
+## Explore Limitless Possibilities
 With SnX, dive into a world of endless possibilities. Explore a vast collection of 3D outfits, ranging from casual wear to haute couture. Immerse yourself in stunning visualizations, where every detail comes to life in exquisite 3D realism.
 
-# Customize Your Style
+## Customize Your Style
 Unleash your creativity with SnX's powerful customization tools. Mix and match different clothing items, colors, textures, and accessories to craft your unique style statement. Whether you're designing for a casual day out or a glamorous event, SnX provides the flexibility to express yourself like never before.
 
-# Seamless User Experience
+## Seamless User Experience
 SnX offers a seamless user experience thanks to its integration with Next.js, providing lightning-fast performance and server-side rendering capabilities. Powered by Three.js, Drei, and React Three Fiber, SnX delivers stunning 3D graphics and smooth interactions, ensuring an immersive and engaging experience for every user.
 
 ## How It Works
