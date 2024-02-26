@@ -1,4 +1,4 @@
-### SnX: 3D Outfit Customizer
+# SnX: 3D Outfit Customizer
 Welcome to SnX, your ultimate destination for exploring and customizing 3D outfits like never before! SnX revolutionizes the way you interact with fashion, offering a seamless and immersive experience powered by cutting-edge web technologies.
 
 # Explore Limitless Possibilities
