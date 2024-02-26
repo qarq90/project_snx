@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --primary-theme-color: #008080;
+    --primary-toast-color: #008080AA;
+    /*--primary-theme-color: goldenrod;*/
+    --primary-color-yellow: #fdf800;
+    --primary-color-blue: #02d7f2;
+    --primary-color-red: #FF003C;
+    --primary-color-black: #1d1d1d;
+    --primary-comp-bg: #2c2c2c;
+
+    --primary-bg: rgba(20, 20, 20, 0.75);
+
+    --primary-text-color: #ccc;
+
+    --primary-nav-background-color: #3c3c3c;
+    --primary-nav-text-color: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-theme-color);
+}
+
+* {
+    scrollbar-color: var(--primary-theme-color) transparent;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100svh;
+    overflow-x: hidden;
+    font-family: sans-serif;
+    background-color: #1d1d1d;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+}
+
+.showAuth {
+    opacity: 1 !important;
+}
+
+.hideAuth {
+    opacity: 0.05 !important;
+}
+
+
+.shadow-md {
+    box-shadow: none !important;
+}
+
+[data-color-mode*='dark'] .w-color-sketch {
+    --sketch-background: #323232 !important;
+}
+
+[data-color-mode*='dark'] .w-color-swatch {
+    --sketch-swatch-border-top: 1px solid #525252 !important;
+}
+
+[data-color-mode*='dark'] .w-color-block {
+    --block-background-color: #323232 !important;
+    --block-box-shadow: rgb(0 0 0 / 10%) 0 1px !important;
+}
+
+[data-color-mode*='dark'] .w-color-editable-input {
+    --editable-input-label-color: #757575 !important;
+    --editable-input-box-shadow: #616161 0px 0px 0px 1px inset !important;
+    --editable-input-color: #bbb !important;
+}
+
+[data-color-mode*='dark'] .w-color-github {
+    --github-border: 1px solid rgba(0, 0, 0, 0.2) !important;
+    --github-background-color: #323232 !important;
+    --github-box-shadow: rgb(0 0 0 / 15%) 0px 3px 12px !important;
+    --github-arrow-border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+[data-color-mode*='dark'] .w-color-compact {
+    --compact-background-color: #323232 !important;
+}
+
+[data-color-mode*='dark'] .w-color-material {
+    --material-background-color: #323232 !important;
+    --material-border-bottom-color: #707070 !important;
+}
+
+[data-color-mode*='dark'] .w-color-alpha {
+    --alpha-pointer-background-color: #6a6a6a !important;
+    --alpha-pointer-box-shadow: rgb(0 0 0 / 37%) 0px 1px 4px 0px !important;
+}
+
+.ql-editor {
+    background: transparent;
+    height: 70px !important;
+    max-height: 100px;
+    overflow: scroll;
+}
+
+.ql-container {
+    border: none !important;
+}
+
+.add-text-btn {
+    position: absolute;
+    top: 1px;
+    right: 2px;
+    color: var(--primary-theme-color);
+    font-size: 40px;
+}
+
+.ql-picker.ql-font .ql-picker-item {
+    font-size: 0;
+}
+
+.ql-picker.ql-font .ql-picker-item:before {
+    content: attr(data-value) !important;
+    font-size: 14px;
+}
+
+
+.ql-picker.ql-font .ql-active:before {
+    content: attr(data-value) !important;
+    font-size: 14px;
+}
+
+.export-glb-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    gap: 20px;
+    flex-direction: row-reverse;
+    z-index: 10;
+}
+
+.export-glb-div > button,
+.export-glb-div > div > button {
+    padding: 10px;
+    background: var(--primary-comp-bg);
+}
+
+.export-glb-div > button:hover,
+.export-glb-div > div:hover {
+    background: var(--primary-theme-color);
+}
+
+.export-glb-div > div > button {
+    box-shadow: none !important;
+}
+
+.export-glb-div > div > button:hover {
+    background: var(--primary-theme-color);
+}
+
+.export-glb-div > div > button.p-splitbutton-menubutton {
+    width: 2rem !important;
+}
+
+.p-tieredmenu {
+    background: var(--primary-color-black) !important;
+    z-index: 100;
+}
+
+.p-confirm-popup-reject {
+    margin-right: 10px;
+    outline: 2px solid var(--primary-theme-color);
+    outline-offset: 2px;
+    padding: 5px;
+}
+
+.p-confirm-popup-accept {
+    padding: 5px;
+    outline: 2px solid var(--primary-theme-color);
+    background-color: var(--primary-theme-color);
+}
+
+.p-confirm-popup {
+    background-color: var(--primary-color-black);
+}
+
+.p-dialog .p-dialog-header {
+    background-color: var(--primary-color-black);
+}
+
+.p-dialog .p-dialog-content,
+.p-dialog .p-dialog-footer {
+    background-color: var(--primary-comp-bg);
+}
+
+.p-dialog .p-dialog-content {
+    padding-bottom: 15px;
+}
+
+.p-dialog .p-dialog-content input {
+    background-color: var(--primary-color-black);
+    border-radius: 5px;
+}
+
+.p-toast-message-icon {
+    display: none;
+}
+
+.p-toast-message-content {
+    padding: 10px;
+    align-items: center;
+}
+
+.p-toast-message {
+    border-style: solid;
+    border-width: 0 0 0 6px;
+    border-radius: 0;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+}

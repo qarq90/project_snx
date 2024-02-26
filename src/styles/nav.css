@@ -1,0 +1,22 @@
+
+.showFullNav{
+    /*width: 11rem;*/
+    /*transition: 0.25s all linear;*/
+}
+
+.hideFullNav{
+    /*width: 5rem;*/
+    /*transition: 0.25s all linear;*/
+}
+
+.showNavLinkText{
+    /*transition: 1s all linear 0.155s;*/
+    /*display: block;*/
+}
+
+.hideNavLinkText{
+    /*visibility: hidden;*/
+    /*transition: 0s all linear;*/
+    /* width: 11rem; */
+    /* transition: 0.25s all linear; */
+}

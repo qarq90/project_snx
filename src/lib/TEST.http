@@ -1,0 +1,14 @@
+POST http://localhost:3000/api/post/user/signup/verify
+Content-Type: application/json
+
+{
+  "signUpUserDetails": {
+    "signupEmail": "oaish@gm.com",
+    "signupPassword": "aoasda",
+    "signupUsername": "Oaish Qazi",
+    "signupPhone": "8928449877"
+  }
+}
+
+###
+GET http://localhost:3000/api/get/model?id=65d8bd925b4a38cee0efc19b

@@ -1,0 +1,39 @@
+.wrapper {
+    box-sizing: border-box;
+}
+
+.gridContainer {
+    box-sizing: border-box;
+    display: flex;
+    height: 88.5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerInner {
+    width: fit-content;
+    display: grid;
+    grid-template-columns: 248px 248px;
+    gap: 20px;
+    padding-block: 20px;
+    margin-inline: auto;
+}
+
+.input {
+    display: none;
+}
+
+.colorPicker {
+    background-color: #202020 !important;
+    width: 100% !important;
+}
+
+.btnGroup > * {
+    margin-inline: 10px;
+    background-color: var(--primary-comp-bg);
+    padding: 10px;
+}
+
+.btnGroup > *:hover {
+    background-color: var(--primary-theme-color);
+}

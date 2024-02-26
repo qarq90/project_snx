@@ -1,0 +1,27 @@
+.white_backdrop {
+    background: white;
+    height: 100%;
+}
+
+.inner {
+    height: 100vh !important;
+    width: calc(100%);
+    background-image: linear-gradient(
+            45deg,
+            rgb(220, 220, 220) 25%,
+            transparent 25%
+    ),
+    linear-gradient(-45deg, rgb(220, 220, 220) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgb(220, 220, 220) 75%),
+    linear-gradient(-45deg, transparent 75%, rgb(220, 220, 220) 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+}
+
+.placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

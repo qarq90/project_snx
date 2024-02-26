@@ -1,0 +1,68 @@
+.imagesWrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: wrap;
+    /*overflow: scroll;*/
+    padding: 10px;
+}
+
+.imgContainerWrapper {
+    position: relative;
+    box-sizing: border-box;
+}
+
+.imgContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border: solid 2px black;
+    box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.17);
+    overflow: hidden;
+    /*border-radius: 5px;*/
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 1rem rgba(0,0,0,0.5);
+    transition: all 1s ease;
+    object-fit: cover;
+}
+
+.closeBtn {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    border-radius: 0 2px 0 4px;
+    background: crimson;
+    width: 18px;
+    height: 18px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.17);
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    color: white !important;
+}
+
+.addDecal {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    cursor: pointer;
+    flex-shrink: 0;
+    font-size: 1.5rem;
+    /*border-radius: 5px;*/
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-theme-color);
+}
+
+.fade {
+    translate: -50% 0;
+    opacity: 0;
+}
