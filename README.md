@@ -32,8 +32,6 @@ Experience the future of fashion with SnX. Unleash your creativity, explore new 
 
 ## Installing the Project
 
-## Installing the Project
-
 To install the project, you need to run the provided installer executable. Here are the steps:
 
 - Download the project as a .zip from Code.
