@@ -9,14 +9,7 @@ import HomeWorks from "@/components/home/HomeWorks";
 import HomeCategories from "@/components/home/HomeCategories";
 import HomeReviews from "@/components/home/HomeReviews";
 import user from "@/models/User";
-import {useRouter} from "next/router";
 export default function Home() {
-        const router = useRouter();
-    useEffect(() => {
-        if (!user) {
-            router.push("/auth");
-        }
-    }, []);
     return (
         <>
             <motion.div variants={scaleUp} initial="initial" animate="show" style={{paddingLeft: "2rem"}}>
