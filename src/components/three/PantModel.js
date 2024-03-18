@@ -46,10 +46,10 @@ const ShirtModel = ({modelRef, groupRef,url, rotation, setModelRayData}) => {
     // LOAD MODEL
     const {nodes, materials} = useGLTF(url)
     console.clear()
-    console.log(nodes)
 
     // ADD DECAL TO ARRAY
     const handleDecal = (e) => {
+        if (decalPath === null) return
         // Get texture
         process_image(decalPath).then(image => {
             new THREE.TextureLoader().load(image, (decalTexture) => {

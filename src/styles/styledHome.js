@@ -107,7 +107,7 @@ export const StyledGridContainerAccesories = styled(motion.div)`
   grid-template-columns: 1fr;
   gap: 50px;
   @media (min-width: 768px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 
   > a > div > svg {

@@ -25,22 +25,9 @@ const IsNavFooter = ({children}) => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log("DATA from isNavFooter:", data)
                     setUser(data.currentUser)
                 })
         }
-
-        // window.addEventListener('beforeunload', function (e) {
-        //     e.preventDefault();
-        //     e.returnValue = '';
-        // });
-        //
-        // return () => {
-        //     window.removeEventListener('beforeunload', function (e) {
-        //         e.preventDefault();
-        //         e.returnValue = '';
-        //     });
-        // }
     }, []);
 
 

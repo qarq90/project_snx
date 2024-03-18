@@ -1,5 +1,5 @@
 import {invalidate} from "@react-three/fiber"
-import {useEffect, useRef} from "react"
+import React, {useState, useEffect, useRef} from "react"
 import useStore from "@/states/modelState"
 import Card from "../card/Card"
 import s from "./controlPanel.module.css"
@@ -9,6 +9,11 @@ import Icon from "@/components/icon/Icon";
 import bgData from "@/constants/bg.json"
 import bgSampleImages from "@/constants/bgSampleImages.json"
 import TextEditor from "@/components/TextEditor";
+import {SavePopup, SavePopupFooter} from "@/styles/styledCreate";
+import {Dialog} from "primereact/dialog";
+import {Button} from "primereact/button";
+import {Toast} from "primereact/toast";
+import {showToast} from "@/lib/helper";
 
 export default function ControlPanel() {
     const customBgRef = useRef()
@@ -35,6 +40,7 @@ export default function ControlPanel() {
         setProps,
         set,
         setSet,
+        setIsWriting,
         setText,
     } = useStore()
 
@@ -60,8 +66,70 @@ export default function ControlPanel() {
         invalidate()
     }
 
+
+    const handleGenerate = async () => {
+        const prompt = promptRef.current.value
+        if (prompt === "") {
+            showToast("error", "Error", "Please enter a prompt", toastRef)
+            return
+        }
+        if (isGenerating) {
+            return
+        }
+        setIsGenerating(true)
+        let api_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTA1ODI3MTcsInVzZXJfaWQiOiI2NTQ3N2Y1MjgzNWExZjVmN2Y3YWNhZTcifQ.pAjfnPaD_Rtw_p-Qqv05FwXJTLmfSrHD1DO7bQkzlYw"
+        let url = "https://api.wizmodel.com/sdapi/v1/txt2img"
+        let payload = {
+            "prompt": prompt,
+        }
+        let headers = {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + api_key
+        }
+        let response = await fetch(url, {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify(payload)
+        })
+        let data = await response.json()
+        setIsGenerating(false)
+        setDialogVisible(false)
+        try {
+            setDecalPath("data:image/png;base64," + data.images[0])
+        } catch (e) {
+            showToast("error", "Error", "API KEY Expired", toastRef)
+        }
+        showToast("success", "Image Generation", "Image has been generated", toastRef)
+    }
+
+    const toastRef = useRef(null)
+    const promptRef = useRef(null)
+    const [dialogVisible, setDialogVisible] = useState(false)
+    const [isGenerating, setIsGenerating] = useState(false)
+    const footerContent = (<SavePopupFooter>
+        <div className="btn-cancel">
+            <Button label="Cancel" onClick={() => setDialogVisible(false)}/>
+        </div>
+        <div className="btn-ok">
+            <Button label="Generate" icon={isGenerating ? "pi pi-spin pi-spinner" : null} onClick={handleGenerate}/>
+        </div>
+    </SavePopupFooter>);
+
     return (
         <div className={s.wrapper}>
+            <Toast ref={toastRef}/>
+            <Dialog visible={dialogVisible} modal header={"Generate Image using AI"} footer={footerContent}
+                    style={{width: '30rem', zIndex: 10000}}
+                    onHide={() => setDialogVisible(false)}>
+                <SavePopup>
+                    <div>
+                        <label>
+                            Enter Prompt:
+                        </label>
+                        <input type="text" onKeyDown={() => setIsWriting(true)} onKeyUp={() => setIsWriting(false)} ref={promptRef}/>
+                    </div>
+                </SavePopup>
+            </Dialog>
             <div className={s.containerInner}>
                 <Card
                     id="color-container"
@@ -193,13 +261,13 @@ export default function ControlPanel() {
                             style={{margin: '10px', backgroundImage: 'url(/thumbs/prop_shapes.png)'}}
                         />
                         <Icon
-                            title="Props"
+                            title="Image Gen AI"
                             onClick={() => {
-                                props === "prop_disco" ? setProps(null) : setProps("prop_disco")
+                                setDialogVisible(true);
                             }}
-                            match={props}
-                            id="prop_disco"
-                            style={{margin: '10px', backgroundImage: 'url(/thumbs/prop_text.png)'}}
+                            match={props + "AI"}
+                            textContent={"AI"}
+                            style={{margin: '10px'}}
                         />
                     </div>
                 </Card>

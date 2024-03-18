@@ -20,8 +20,17 @@
     --primary-nav-text-color: #fff;
 }
 
+
+::-webkit-scrollbar {
+    width: 2px;
+}
+
 ::-webkit-scrollbar-thumb {
     background: var(--primary-theme-color);
+}
+
+::-webkit-scrollbar-track {
+    background: var(--primary-comp-bg);
 }
 
 * {
@@ -222,3 +231,17 @@ body {
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
 }
+
+:-moz-focusring,
+:focus,
+button::-moz-focus-inner,
+:-moz-focusring *,
+:focus * {
+    appearance: none;
+    border-style: solid;
+    outline: revert !important;
+    outline-offset: revert !important;
+    -moz-outline-radius: revert !important;
+    box-shadow: revert !important;
+}
+

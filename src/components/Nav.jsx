@@ -19,10 +19,7 @@ const Nav = () => {
     const router = useRouter();
 
     const [profile, setProfile] = useState(false);
-    const [swiped, setSwiped] = useState(false);
     const [userData, setUserData] = useState([]);
-    const [username, setUsername] = useState("");
-    const [editProfile, setEditProfile] = useState(false);
     const toastRef = useRef(null);
 
     const {user, setUser} = useAppStore();
@@ -38,7 +35,6 @@ const Nav = () => {
     const fetchUserData = async () => {
         try {
             if (user == null || !user._id) {
-                console.log("User ID not available.");
                 router.push("/auth")
                 return;
             }
@@ -55,15 +51,11 @@ const Nav = () => {
 
             const res = await fetch("/api/get/user/profile", options);
             const data = await res.json();
-            console.log("DATA", data)
             if (!data || data.length === 0) {
-                console.log("No user details found.");
                 return;
             }
 
             setUserData(data)
-            console.log("User details fetched:");
-            console.log(userData)
 
         } catch (error) {
             router.push("/auth");
@@ -80,7 +72,6 @@ const Nav = () => {
     const deleteUser = async () => {
         try {
             if (!user || !user._id) {
-                console.log("User ID not available.");
                 return;
             }
 
@@ -97,64 +88,12 @@ const Nav = () => {
             const res = await fetch("/api/post/delete-user", options);
             const data = await res.json();
 
-            console.log(data);
-            console.log("User deleted successfully.");
-
             router.push("/auth");
 
         } catch (error) {
             console.error("Error deleting user:", error);
         }
     }
-
-    // const resetData = () => {
-    //     fetchUserData();
-    //     setEditProfile(false);
-    // }
-
-    // const updateUser = async () => {
-    //     setEditProfile(!editProfile);
-    //     if (editProfile) {
-    //         try {
-    //             const {_id, ...updatedUserDetails} = user;
-    //             const options = {
-    //                 method: "POST",
-    //                 body: JSON.stringify({
-    //                     editedUserDetails: {
-    //                         ...updatedUserDetails,
-    //                         updateUserID: {userId: user._id}
-    //                     }
-    //                 }),
-    //                 headers: {
-    //                     "Content-Type": "application/json"
-    //                 }
-    //             };
-    //
-    //             const res = await fetch("/api/post/edit-user", options);
-    //             const data = await res.json();
-    //
-    //             if (res.ok) {
-    //                 if (data.found) {
-    //                     console.log("User Updated Successfully");
-    //                     setUser(data.user);
-    //                     showToast("success", "Profile Updated", "Profile Updated Successfully.", toastRef);
-    //                     router.push('/account');
-    //                 } else {
-    //                     showToast("error", "Account Updation Failed", "Incorrect Email or Password", toastRef);
-    //                     console.log("Account Updation Failed: Incorrect Email or Password");
-    //                 }
-    //             } else {
-    //                 showToast("error", "Error", "Failed to update profile.", toastRef);
-    //                 console.error("Failed to update profile:", res.status);
-    //             }
-    //         } catch (error) {
-    //             console.error("Error updating profile:", error);
-    //             showToast("error", "Error", "Failed to update profile.", toastRef);
-    //         }
-    //     } else {
-    //         console.log(editProfile);
-    //     }
-    // };
 
 
     const handleDriverStart = () => {
@@ -178,7 +117,6 @@ const Nav = () => {
                 accountDriver();
                 break;
             default:
-                console.log("Default Scenario");
                 break;
         }
     };

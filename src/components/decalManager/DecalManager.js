@@ -27,8 +27,6 @@ const DecalManager = () => {
         newArr.splice(i, 1)
 
         removeDecal(key)
-        console.log("DD in DM:", newArr)
-        setDecalsData(newArr)
     }
 
     return (

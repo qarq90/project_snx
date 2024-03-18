@@ -25,7 +25,7 @@ export default function HomeCategories() {
                         </StyledFlexContainer>
                         <StyledGridContainerAccesories>
                             {catogories.map((category) => (
-                                <Link href={category.path} key={category.id} target="_blank">
+                                <Link href={category.path} key={category.id}>
                                     <div key={category.id}>{category.icon}</div>
                                 </Link>
                             ))}

@@ -5,7 +5,6 @@ import LightsHarsh from "./LightsHarsh"
 import ColorBg from "./sets/ColorBg"
 import ImageBg from "./sets/ImageBg"
 import ShapesBg from "@/components/three/sets/ShapesBg";
-import DiscoLights from "@/components/three/DiscoLights";
 
 const Scenes = () => {
     const { backgroundColor, modelColor, set, props } = useStore()
@@ -39,9 +38,6 @@ const Scenes = () => {
             )}
             {props === "prop_shapes" && (
                 <ShapesBg />
-            )}
-            {props === "prop_disco" && (
-                <DiscoLights />
             )}
         </>
     )

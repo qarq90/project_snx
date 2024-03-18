@@ -1,6 +1,6 @@
 import {FaShirt} from "react-icons/fa6";
 import React from "react";
-import {PiPantsFill, PiSneakerFill} from "react-icons/pi";
+import {PiBaseballCap, PiPantsFill, PiSneakerFill} from "react-icons/pi";
 import {FaAccessibleIcon, FaCheckDouble, FaFire} from "react-icons/fa";
 
 export const works = [
@@ -52,6 +52,11 @@ export const catogories = [
         icon: <PiSneakerFill/>,
         path: "/create/new/shoes",
     },
+    {
+        id: 4,
+        icon: <PiBaseballCap/>,
+        path: "/create/new/cap",
+    }
 ]
 
 export const userReviews = [

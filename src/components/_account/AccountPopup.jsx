@@ -23,7 +23,6 @@ export default function AccountPopup({user, setProfile}) {
     const deleteUser = async () => {
         try {
             if (!user || !user._id) {
-                console.log("User ID not available.");
                 return;
             }
 
@@ -37,14 +36,10 @@ export default function AccountPopup({user, setProfile}) {
                 }
             };
 
-            const res = await fetch("/api/post/delete-user", options);
+            const res = await fetch("/api/post/user/delete", options);
             const data = await res.json();
 
-            console.log(data);
-            console.log("User deleted successfully.");
-
             router.push("/auth");
-
         } catch (error) {
             console.error("Error deleting user:", error);
         }

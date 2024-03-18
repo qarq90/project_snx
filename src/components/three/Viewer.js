@@ -74,13 +74,11 @@ const Viewer = ({mode, DD, modelUrl}) => {
     const {saved, setSaved} = useAppStore()
 
     useEffect(() => {
-        console.log("USE_EFFECT: ", decalsData)
         if (modelRef.current === null) return;
         if (modelRef.current) {
-            console.log('Model reference is now available:', modelRef.current)
+            console.log('Model reference is now available')
         }
         decalsData.map((dec) => {
-            console.log(dec.textureName)
             new THREE.TextureLoader().load(dec.texture, (decalTexture) => {
                 const {x: x1, y: y1, z: z1} = dec.position
                 const {x: x2, y: y2, z: z2} = dec.normal
@@ -170,7 +168,6 @@ const Viewer = ({mode, DD, modelUrl}) => {
                 save(new Blob([result], {type: 'application/octet-stream'}), 'model.glb');
             } else {
                 const output = JSON.stringify(result, null, 2);
-                console.log(output);
             }
         }, (err) => {
             console.error(err.message)
@@ -185,7 +182,7 @@ const Viewer = ({mode, DD, modelUrl}) => {
                 const imgData = gl.domElement.toDataURL("image/png")
                 const a = document.createElement("a");
 
-                a.setAttribute("download", "shirt.png")
+                a.setAttribute("download", "")
                 a.setAttribute("href", imgData)
                 a.click()
 
@@ -284,7 +281,6 @@ const Viewer = ({mode, DD, modelUrl}) => {
         })
 
         const data = await res.json()
-        console.log(data)
         setLoading(false)
         setIsWriting(false)
         showToast("success", "Saved", "Model has been saved", toastRef)
@@ -346,8 +342,6 @@ const Viewer = ({mode, DD, modelUrl}) => {
                 </Button>
                 <SplitButton id="export-container" label={"Export"} icon={"pi pi-file-export"} model={items}
                              onClick={async () => {
-                                 console.log("Export Button is clicked")
-                                 console.log("EXPORT DD", decalsData)
                              }} raised/>
                 <Button id="reset-button" label={"Reset"} icon={"pi pi-eraser"} onClick={handleReset} raised/>
             </div>

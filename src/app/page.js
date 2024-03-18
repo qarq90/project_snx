@@ -8,9 +8,13 @@ import StyledProgressBar from "@/components/StyledProgressBar";
 import HomeWorks from "@/components/home/HomeWorks";
 import HomeCategories from "@/components/home/HomeCategories";
 import HomeReviews from "@/components/home/HomeReviews";
-import {EmptyBlock} from "@/components/EmptyBlock";
-
+import user from "@/models/User";
+import {useRouter} from "next/router";
 export default function Home() {
+    if (user === undefined){
+        const router = useRouter();
+        router.push("/auth");
+    }
     return (
         <>
             <motion.div variants={scaleUp} initial="initial" animate="show" style={{paddingLeft: "2rem"}}>

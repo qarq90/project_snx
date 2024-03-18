@@ -25,11 +25,11 @@ export const AccountFound = () => {
     }, []);
 
     const handleLogin = () => {
-        router.push('/auth').then(r => console.log("R: ", r));
+        router.push('/auth').then();
     };
 
     const handleSignUp = () => {
-        router.push('/auth').then(r => console.log("R: ", r));
+        router.push('/auth').then();
     };
 
     return (
