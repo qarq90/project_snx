@@ -11,8 +11,8 @@ import HomeReviews from "@/components/home/HomeReviews";
 import user from "@/models/User";
 import {useRouter} from "next/router";
 export default function Home() {
-    if (user === undefined){
         const router = useRouter();
+    if (user === undefined){
         router.push("/auth");
     }
     return (
