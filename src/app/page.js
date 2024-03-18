@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, {useEffect} from "react";
 import {motion} from "framer-motion";
 import {scaleUp} from "@/styles/styledAnimations";
 import HomeTitle from "@/components/home/HomeTitle";
