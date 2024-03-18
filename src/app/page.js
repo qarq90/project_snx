@@ -12,9 +12,11 @@ import user from "@/models/User";
 import {useRouter} from "next/router";
 export default function Home() {
         const router = useRouter();
-    if (user === undefined){
-        router.push("/auth");
-    }
+    useEffect(() => {
+        if (!user) {
+            router.push("/auth");
+        }
+    }, []);
     return (
         <>
             <motion.div variants={scaleUp} initial="initial" animate="show" style={{paddingLeft: "2rem"}}>
