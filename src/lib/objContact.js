@@ -39,13 +39,13 @@ export const contactAccordionItems = [
         key: "3",
         ariaLabel: "Accordion 3",
         title: " How Does SnX's 3D Outfit Customizer Work?",
-        content: "SnX's 3D outfit customizer utilizes cutting-edge technology to provide users with a seamless and intuitive customization experience. Users can easily navigate through the platform's user-friendly interface, select garments, adjust sizes, apply textures, and preview their outfits from multiple angles. SnX's advanced rendering engine ensures high-quality, lifelike visuals, allowing users to see their designs come to life in vivid detail.",
+        content: "SnX's 3D outfit customizer utilizes cutting-edge technology to provide users with a seamless and intuitive customization experience. Users can easily navigate through the platform's user-friendly interface, select clothing type, adjust sizes, apply decals, and preview their outfits from multiple angles. SnX's advanced rendering engine ensures high-quality, lifelike visuals, allowing users to see their designs come to life in vivid detail.",
     },
     {
         key: "4",
         ariaLabel: "Accordion 4",
         title: "What Features Does SnX's 3D Outfit Customizer Offer?",
-        content: "SnX's 3D outfit customizer offers a wide range of features designed to enhance your customization experience. From a diverse selection of clothing items and accessories to customizable color palettes and texture options, SnX empowers users to express their individual style preferences with ease. Additionally, SnX provides interactive tools for sizing adjustments, layering garments, and sharing creations with friends and social networks.",
+        content: "SnX's 3D outfit customizer offers a wide range of features designed to enhance your customization experience. From a diverse selection of clothing items and accessories to customizable color palettes and AI generated image options, SnX empowers users to express their individual style preferences with ease. Additionally, SnX provides interactive tools for sizing adjustments, layering decals, and sharing creations with friends and social networks.",
     },
     {
         key: "5",
