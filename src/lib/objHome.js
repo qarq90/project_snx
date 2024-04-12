@@ -1,7 +1,7 @@
 import {FaShirt} from "react-icons/fa6";
 import React from "react";
 import {PiBaseballCap, PiPantsFill, PiSneakerFill} from "react-icons/pi";
-import {FaAccessibleIcon, FaCheckDouble, FaFire} from "react-icons/fa";
+import {FaAccessibleIcon, FaCheckDouble, FaRobot} from "react-icons/fa";
 
 export const works = [
     {
@@ -16,13 +16,13 @@ export const works = [
     },
     {
         icon: <TagIcon className="h-12 w-12 mb-4 text-gray-900 dark:text-gray-50"/>,
-        title: "Select Your Fabrics",
-        description: "Pick the fabrics that suit your comfort and style."
+        title: "Select Your Size",
+        description: "Pick your desired size that suits your comfort and style."
     },
     {
-        icon: <FaFire className="h-12 w-12 mb-4 text-gray-900 dark:text-gray-50"/>,
-        title: "Discover New Trends",
-        description: "Stay up-to-date with the latest fashion trends and styles."
+        icon: <FaRobot className="h-12 w-12 mb-4 text-gray-900 dark:text-gray-50"/>,
+        title: "Leverage the Power of AI",
+        description: "Use AI to generate images or decals if you can't decide or create your style."
     },
     {
         icon: <FaAccessibleIcon className="h-12 w-12 mb-4 text-gray-900 dark:text-gray-50"/>,
@@ -31,8 +31,8 @@ export const works = [
     },
     {
         icon: <FaCheckDouble className="h-12 w-12 mb-4 text-gray-900 dark:text-gray-50"/>,
-        title: "Review Your Order",
-        description: "Take a final look at your custom outfit before placing your order."
+        title: "Review Your Model",
+        description: "Take a final look at your custom model before sharing it."
     },
 ];
 

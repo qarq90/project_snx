@@ -105,7 +105,6 @@ export const ContactAccordianContainer = styled(motion.div)`
 
         > button {
           font-size: 1.10rem;
-          padding: 1rem;
           display: flex;
           background-color: var(--primary-comp-bg);
           width: 100%;
@@ -130,7 +129,6 @@ export const ContactAccordianContainer = styled(motion.div)`
       }
 
       > section {
-        padding: 1rem;
         background-color: var(--primary-comp-bg);
       }
     }
