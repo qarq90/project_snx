@@ -2,13 +2,13 @@ import styled from "styled-components";
 import {motion} from "framer-motion";
 
 export default function HeaderSub({content}) {
-    return (
-        <>
-            <SHeaderSub>
-                {content}
-            </SHeaderSub>
-        </>
-    )
+	return (
+		<>
+			<SHeaderSub>
+				{content}
+			</SHeaderSub>
+		</>
+	)
 }
 
 const SHeaderSub = styled(motion.h1)`

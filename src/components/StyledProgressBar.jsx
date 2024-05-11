@@ -2,14 +2,14 @@ import {motion, useScroll} from "framer-motion";
 import {styled} from "styled-components";
 
 export default function StyledProgressBar() {
-    const {scrollYProgress} = useScroll();
-    return (
-        <>
-            <StyledBar
-                style={{ scaleX: scrollYProgress }}
-            />
-        </>
-    )
+	const {scrollYProgress} = useScroll();
+	return (
+		<>
+			<StyledBar
+				style={{scaleX: scrollYProgress}}
+			/>
+		</>
+	)
 }
 
 const StyledBar = styled(motion.div)`

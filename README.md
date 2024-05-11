@@ -31,7 +31,6 @@ Customize: Mix and match clothing items, colors, and textures to create your per
 Preview: Visualize your customized outfit from every angle with realistic 3D rendering.
 Save and Share: Save your creations and share them with friends on social media.
 
-
 ## Built for Innovation
 SnX is built on the latest web technologies, leveraging the power of Next.js for seamless navigation and dynamic content delivery. Three.js, Drei, and React Three Fiber empower SnX with advanced 3D rendering capabilities, pushing the boundaries of web-based fashion customization.
 

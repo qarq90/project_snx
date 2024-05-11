@@ -1,15 +1,15 @@
 import {styled} from "styled-components";
 
 export const EmptyBlock = () => {
-    return(
-        <>
-            <StyledEmptyBlock></StyledEmptyBlock>
-        </>
-    )
+	return (
+		<>
+			<StyledEmptyBlock></StyledEmptyBlock>
+		</>
+	)
 }
 
 const StyledEmptyBlock = styled.div`
-  height: 6rem;
-  background-color: transparent;
-  width: 100%;
+    height: 6rem;
+    background-color: transparent;
+    width: 100%;
 `;
