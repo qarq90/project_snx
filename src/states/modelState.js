@@ -4,7 +4,7 @@ const initialDecalSize = 0.2;
 
 const useStore = create((set) => ({
     animation: null,
-    backgroundColor: "#333333",
+    backgroundColor: "#b0e0e6",
     backgroundImage: {
         data: "",
         name: "",
@@ -76,7 +76,7 @@ export default useStore;
 
 const initialValues = {
     animation: null,
-    backgroundColor: "#333333",
+    backgroundColor: "#b0e0e6",
     backgroundImage: {
         data: null,
         name: null,
@@ -91,7 +91,7 @@ const initialValues = {
     decals: [],
     decalSize: initialDecalSize,
     initialDecalSize: initialDecalSize,
-    modelColor: "#ffffff",
+    modelColor: "#555",
     props: null,
     modelRotation: 0,
     sceneRef: null,
