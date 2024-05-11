@@ -1,6 +1,13 @@
 # SnX: 3D Outfit Customizer
 Welcome to SnX, your ultimate destination for exploring and customizing 3D outfits like never before! SnX revolutionizes the way you interact with fashion, offering a seamless and immersive experience powered by cutting-edge web technologies.
 
+- Craft your unique style statement with an extensive collection of 3D outfits and accessories.
+- Seamlessly mix and match clothing items, colors, and textures to curate your perfect ensemble.
+- Experience stunning 3D rendering powered by Three.js, Drei, and React Three Fiber for a lifelike preview of your customized outfit.
+- Built with Next.js for lightning-fast performance and server-side rendering, SnX offers a captivating user experience for fashion enthusiasts worldwide.
+- Repo: (https://github.com/qarq90/SnX)
+
+<br>
 
 ![image](https://github.com/qarq90/qarq90/assets/124421417/13ddd174-1947-45b1-9b7d-4610139414f9)
 
