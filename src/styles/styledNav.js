@@ -19,20 +19,21 @@ export const NavContainer = styled(motion.div)`
 `;
 
 export const NavSubContainer = styled(motion.div)`
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-
-  > .navLinksTop {
-    border-bottom: 4px solid var(--primary-theme-color);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
     background-color: var(--primary-color-black);
-  }
 
-  > .navLinksBottom {
-    margin-top: auto;
-    border-top: 4px solid var(--primary-theme-color);
-    background-color: var(--primary-color-black);
-  }
+    > .navLinksTop {
+        border-bottom: 4px solid var(--primary-theme-color);
+        background-color: var(--primary-comp-bg);
+    }
+
+    > .navLinksBottom {
+        margin-top: auto;
+        border-top: 4px solid var(--primary-theme-color);
+        background-color: var(--primary-comp-bg);
+    }
 `;
 
 export const NavSubRight = styled(motion.div)`

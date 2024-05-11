@@ -5,7 +5,6 @@
 :root {
     --primary-theme-color: #008080;
     --primary-toast-color: #008080AA;
-    /*--primary-theme-color: goldenrod;*/
     --primary-color-yellow: #fdf800;
     --primary-color-blue: #02d7f2;
     --primary-color-red: #FF003C;
@@ -244,4 +243,3 @@ button::-moz-focus-inner,
     -moz-outline-radius: revert !important;
     box-shadow: revert !important;
 }
-

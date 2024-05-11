@@ -1,4 +1,4 @@
-import {FaDoorOpen, FaHome, FaPlus, FaUserEdit} from "react-icons/fa";
+import {FaDoorOpen, FaHome, FaPlus, FaSun, FaUserEdit} from "react-icons/fa";
 import {BiSolidMessage} from "react-icons/bi";
 import React from "react";
 
@@ -28,14 +28,19 @@ export const NavLinksTopMiddle = [
         title: "Contact",
         path: "/contact",
         id: "contact-link"
-    }
+    },
+    {
+        icon: <FaDoorOpen/>,
+        title: "Log Out",
+        path: "/auth",
+        id: "logout-link",
+    },
 ];
 
 export const NavLinksBottom = [
     {
         icon: <FaUserEdit/>,
         title: "Account",
-        // path: "/account",
     },
 ];
 

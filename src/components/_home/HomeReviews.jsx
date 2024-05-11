@@ -48,13 +48,11 @@ export default function HomeReviews() {
                         animate="show"
                     >
                         <StyledTitle
-                            className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl"
                             variants={scaleUp}
                         >
                             Customer Reviews
                         </StyledTitle>
                         <StyledParagraph
-                            className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400"
                             variants={scaleUp}
                         >
                             Hear from our satisfied customers who have created their unique outfits with our 3D

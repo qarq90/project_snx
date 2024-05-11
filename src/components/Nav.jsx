@@ -12,179 +12,196 @@ import {BiHelpCircle} from "react-icons/bi";
 import AccountPopup from "@/components/_account/AccountPopup";
 import useAppStore from "@/states/appState";
 import {showToast} from "@/lib/helper";
+import {FaMoon, FaSun} from "react-icons/fa";
 
 
 const Nav = () => {
-    const pathname = usePathname();
-    const router = useRouter();
+	const pathname = usePathname();
+	const router = useRouter();
 
-    const [profile, setProfile] = useState(false);
-    const [userData, setUserData] = useState([]);
-    const toastRef = useRef(null);
+	const [profile, setProfile] = useState(false);
+	const [userData, setUserData] = useState([]);
+	const toastRef = useRef(null);
 
-    const {user, setUser} = useAppStore();
+	const {user, setUser} = useAppStore();
 
-    const handleLogin = () => {
-        router.push('/auth');
-    };
+	const handleLogin = () => {
+		router.push('/auth');
+	};
 
-    const handleSignUp = () => {
-        router.push('/auth')
-    };
+	const handleSignUp = () => {
+		router.push('/auth')
+	};
 
-    const fetchUserData = async () => {
-        try {
-            if (user == null || !user._id) {
-                router.push("/auth")
-                return;
-            }
+	const fetchUserData = async () => {
+		try {
+			if (user == null || !user._id) {
+				router.push("/auth")
+				return;
+			}
 
-            const options = {
-                method: "POST",
-                body: JSON.stringify({
-                    email: user.email
-                }),
-                headers: {
-                    "Content-Type": "application/json",
-                }
-            };
+			const options = {
+				method: "POST",
+				body: JSON.stringify({
+					email: user.email
+				}),
+				headers: {
+					"Content-Type": "application/json",
+				}
+			};
 
-            const res = await fetch("/api/get/user/profile", options);
-            const data = await res.json();
-            if (!data || data.length === 0) {
-                return;
-            }
+			const res = await fetch("/api/get/user/profile", options);
+			const data = await res.json();
+			if (!data || data.length === 0) {
+				return;
+			}
 
-            setUserData(data)
+			setUserData(data)
 
-        } catch (error) {
-            router.push("/auth");
-            console.error("Error fetching user data:", error);
-            showToast("error", "Error", "Failed to fetch user data.", toastRef);
-        }
-    };
-
-
-    useEffect(() => {
-        fetchUserData().then();
-    }, []);
-
-    const deleteUser = async () => {
-        try {
-            if (!user || !user._id) {
-                return;
-            }
-
-            const options = {
-                method: "POST",
-                body: JSON.stringify({
-                    deleteUserID: {userId: user._id}
-                }),
-                headers: {
-                    "Content-Type": "application/json",
-                }
-            };
-
-            const res = await fetch("/api/post/delete-user", options);
-            const data = await res.json();
-
-            router.push("/auth");
-
-        } catch (error) {
-            console.error("Error deleting user:", error);
-        }
-    }
+		} catch (error) {
+			router.push("/auth");
+			console.error("Error fetching user data:", error);
+			showToast("error", "Error", "Failed to fetch user data.", toastRef);
+		}
+	};
 
 
-    const handleDriverStart = () => {
-        switch (pathname) {
-            case "/":
-                navDriver();
-                break;
-            case "/create":
-                createDriver();
-                break;
-            case "/create/new/shirt":
-            case "/create/new/pant":
-            case "/create/new/shoes":
-            case "/create/new/cap":
-                createDesignerDriver();
-                break;
-            case "/contact":
-                contactDriver();
-                break;
-            case "/account":
-                accountDriver();
-                break;
-            default:
-                break;
-        }
-    };
+	useEffect(() => {
+		fetchUserData().then();
+	}, []);
 
-    const openProfile = () => {
-        setProfile(!profile);
-    }
+	const deleteUser = async () => {
+		try {
+			if (!user || !user._id) {
+				return;
+			}
 
-    return (
-        <>
-            <NLS.NavContainer>
-                <NLS.NavSubContainer>
-                    <NLS.NavSubLeft className="navLinksTop">
-                        <NLS.NavStyledUl>
-                            {NavLinksTop.map((navLink, index) => (
-                                <NLS.NavStyledLi key={index}>
-                                    <StyledLink id="project-link" href={navLink.path}>
-                                        <NLS.NavStyledIcon>{navLink.icon}</NLS.NavStyledIcon>
-                                    </StyledLink>
-                                </NLS.NavStyledLi>
-                            ))}
-                        </NLS.NavStyledUl>
-                    </NLS.NavSubLeft>
-                </NLS.NavSubContainer>
+			const options = {
+				method: "POST",
+				body: JSON.stringify({
+					deleteUserID: {userId: user._id}
+				}),
+				headers: {
+					"Content-Type": "application/json",
+				}
+			};
 
-                <NLS.NavSubContainer>
-                    <NLS.NavSubRight>
-                        <NLS.NavStyledUl>
-                            {NavLinksTopMiddle.map((navLink, index) => (
-                                <NLS.NavStyledLi key={index} className="middle-links">
-                                    <StyledLink id={navLink.id} href={navLink.path}>
-                                        <NLS.NavStyledIcon>{navLink.icon}</NLS.NavStyledIcon>
-                                    </StyledLink>
-                                </NLS.NavStyledLi>
-                            ))}
-                            <NLS.NavStyledLi className="middle-links">
-                                <StyledNotLink id="help-button" onClick={() => handleDriverStart()}>
-                                    <NLS.NavStyledIcon>
-                                        <BiHelpCircle/>
-                                    </NLS.NavStyledIcon>
-                                </StyledNotLink>
-                            </NLS.NavStyledLi>
-                        </NLS.NavStyledUl>
-                    </NLS.NavSubRight>
-                </NLS.NavSubContainer>
+			const res = await fetch("/api/post/delete-user", options);
+			const data = await res.json();
 
-                <NLS.NavSubContainer>
-                    <NLS.NavSubLeft className="navLinksBottom">
-                        <NLS.NavStyledUl>
-                            {NavLinksBottom.map((navLink, index) => (
-                                <NLS.NavStyledLi key={index}>
-                                    <StyledNotLink id="account-link" onClick={openProfile}>
-                                        <NLS.NavStyledIcon>{navLink.icon}</NLS.NavStyledIcon>
-                                    </StyledNotLink>
-                                </NLS.NavStyledLi>
-                            ))}
-                        </NLS.NavStyledUl>
-                    </NLS.NavSubLeft>
-                </NLS.NavSubContainer>
-            </NLS.NavContainer>
-            {
-                profile ?
-                    <>
-                        <AccountPopup user={user} setProfile={setProfile}/>
-                    </> : <></>
-            }
-        </>
-    );
+			router.push("/auth");
+
+		} catch (error) {
+			console.error("Error deleting user:", error);
+		}
+	}
+
+
+	const handleDriverStart = () => {
+		switch (pathname) {
+			case "/":
+				navDriver();
+				break;
+			case "/create":
+				createDriver();
+				break;
+			case "/create/new/shirt":
+			case "/create/new/pant":
+			case "/create/new/shoes":
+			case "/create/new/cap":
+				createDesignerDriver();
+				break;
+			case "/contact":
+				contactDriver();
+				break;
+			case "/account":
+				accountDriver();
+				break;
+			default:
+				break;
+		}
+	};
+
+	const openProfile = () => {
+		setProfile(!profile);
+	}
+
+	const [isDarkTheme, setIsDarkTheme] = useState(true);
+
+	const handleThemeToggle = () => {
+		setIsDarkTheme(!isDarkTheme);
+		document.documentElement.style.setProperty('--primary-color-black', isDarkTheme ? '#e0ffff' : '#1d1d1d');
+		document.documentElement.style.setProperty('--primary-text-color', isDarkTheme ? '#1d1d1d' : '#008080');
+		document.documentElement.style.setProperty('--primary-comp-bg', isDarkTheme ? '#b0e0e6' : '#2c2c2c');
+	};
+
+	return (
+		<>
+			<NLS.NavContainer>
+				<NLS.NavSubContainer>
+					<NLS.NavSubLeft className="navLinksTop">
+						<NLS.NavStyledUl>
+							{NavLinksTop.map((navLink, index) => (
+								<NLS.NavStyledLi key={index}>
+									<StyledLink id="project-link" href={navLink.path}>
+										<NLS.NavStyledIcon>{navLink.icon}</NLS.NavStyledIcon>
+									</StyledLink>
+								</NLS.NavStyledLi>
+							))}
+						</NLS.NavStyledUl>
+					</NLS.NavSubLeft>
+				</NLS.NavSubContainer>
+
+				<NLS.NavSubContainer>
+					<NLS.NavSubRight>
+						<NLS.NavStyledUl>
+							{NavLinksTopMiddle.map((navLink, index) => (
+								<NLS.NavStyledLi key={index} className="middle-links">
+									<StyledLink id={navLink.id} href={navLink.path}>
+										<NLS.NavStyledIcon>{navLink.icon}</NLS.NavStyledIcon>
+									</StyledLink>
+								</NLS.NavStyledLi>
+							))}
+							<NLS.NavStyledLi className="middle-links">
+								<StyledNotLink id="theme-link" onClick={() => handleThemeToggle()}>
+									<NLS.NavStyledIcon onClick={() => setIsDarkTheme(!isDarkTheme)}>
+										{isDarkTheme ? <FaSun/> : <FaMoon/>}
+									</NLS.NavStyledIcon>
+								</StyledNotLink>
+							</NLS.NavStyledLi>
+							<NLS.NavStyledLi className="middle-links">
+								<StyledNotLink id="help-button" onClick={() => handleDriverStart()}>
+									<NLS.NavStyledIcon>
+										<BiHelpCircle/>
+									</NLS.NavStyledIcon>
+								</StyledNotLink>
+							</NLS.NavStyledLi>
+						</NLS.NavStyledUl>
+					</NLS.NavSubRight>
+				</NLS.NavSubContainer>
+
+				<NLS.NavSubContainer>
+					<NLS.NavSubLeft className="navLinksBottom">
+						<NLS.NavStyledUl>
+							{NavLinksBottom.map((navLink, index) => (
+								<NLS.NavStyledLi key={index}>
+									<StyledNotLink id="account-link" onClick={openProfile}>
+										<NLS.NavStyledIcon>{navLink.icon}</NLS.NavStyledIcon>
+									</StyledNotLink>
+								</NLS.NavStyledLi>
+							))}
+						</NLS.NavStyledUl>
+					</NLS.NavSubLeft>
+				</NLS.NavSubContainer>
+			</NLS.NavContainer>
+			{
+				profile ?
+					<>
+						<AccountPopup user={user} setProfile={setProfile}/>
+					</> : <></>
+			}
+		</>
+	);
 };
 
 export default Nav;

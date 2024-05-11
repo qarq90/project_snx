@@ -105,7 +105,7 @@ export const fadeConUp = {
 
 export const fadeLeft = {
     initial: {
-        x: -100,
+        x: 100,
         opacity: 0,
     },
     show: {
@@ -116,7 +116,7 @@ export const fadeLeft = {
         },
     },
     exit: {
-        x: -100,
+        x: 100,
         opacity: 0,
         transition: {
             duration: 0.75,
@@ -338,4 +338,3 @@ export const accountSwipeIn = {
         },
     },
 };
-

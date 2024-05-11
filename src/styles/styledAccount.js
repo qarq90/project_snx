@@ -225,7 +225,7 @@ export const ImageInputLabel = styled.label`
 export const StyledUserAvatar = styled(Avatar)`
   width: 7rem;
   height: 7rem;
-  background-color: var(--primary-theme-color);
+  background-color: var(--primary-text-color);
   font-size: 2rem;
   margin-top: 0.8rem;
   border-radius: 100%;

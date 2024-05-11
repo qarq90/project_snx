@@ -6,7 +6,7 @@ export const StyledFooter = styled.footer`
   border-top: 4px var(--primary-theme-color) solid;
   background-color: var(--primary-comp-bg);
   margin-left: 5%;
-  padding: 1.9% 3%;
+  padding: 2% 3%;
   display: flex;
   align-items: center;
   color: var(--primary-theme-color);
