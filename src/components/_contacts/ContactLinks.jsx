@@ -8,7 +8,7 @@ import {
 import {ObjContact} from "@/lib/objContact";
 import Link from "next/link";
 import {FaLink, FaMailBulk} from "react-icons/fa";
-import {scaleUp} from "@/styles/styledAnimations";
+import {fadeLeft} from "@/styles/styledAnimations";
 import HeaderTitle from "@/components/HeaderTitle";
 
 export default function ContactLinks() {
@@ -21,7 +21,7 @@ export default function ContactLinks() {
                     content={"Contact Links"}
                 />
                 <ContactCardsContainer
-                    variants={scaleUp}
+                    variants={fadeLeft}
                     initial="initial"
                     animate="show"
                 >
@@ -30,12 +30,12 @@ export default function ContactLinks() {
                             key={index}
                             href={card.path}
                             target="_blank"
-                            variants={scaleUp}
+                            variants={fadeLeft}
                             initial="initial"
                             animate="show"
                         >
                             <ContactCard
-                                variants={scaleUp}
+                                variants={fadeLeft}
                             >
                                 <ContactCardIcon className="contact-icon">
                                     {card.icon}

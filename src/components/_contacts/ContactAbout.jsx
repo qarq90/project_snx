@@ -1,6 +1,6 @@
 import {ContactAboutText, StyledContactSection} from "@/styles/styledContacts";
 import {FaPersonCircleQuestion} from "react-icons/fa6";
-import {scaleUp} from "@/styles/styledAnimations";
+import {fadeLeft} from "@/styles/styledAnimations";
 import {motion} from "framer-motion";
 import HeaderTitle from "@/components/HeaderTitle";
 
@@ -12,12 +12,12 @@ export default function ContactAbout() {
                 content={"About Us"}
             />
             <ContactAboutText
-                variants={scaleUp}
+                variants={fadeLeft}
                 initial="initial"
                 animate="show"
             >
                 <motion.span
-                    variants={scaleUp}
+                    variants={fadeLeft}
                 >
                     SnX is a pioneering platform revolutionizing outfit customization through advanced 3D
                     technology. With a vision to democratize fashion, SnX empowers individuals to express their
@@ -26,7 +26,7 @@ export default function ContactAbout() {
                 <br/>
                 <br/>
                 <motion.span
-                    variants={scaleUp}
+                    variants={fadeLeft}
                 >
                     Our intuitive interface offers endless customization options, from
                     fabric selection to fit adjustments, ensuring every outfit reflects your personality. Committed
@@ -37,7 +37,7 @@ export default function ContactAbout() {
                 <br/>
                 <br/>
                 <motion.span
-                    variants={scaleUp}
+                    variants={fadeLeft}
                 >
                     Experience the future of fashion with SnX – where creativity knows no bounds,
                     and individuality reigns supreme. Welcome to a world where fashion meets innovation, only at

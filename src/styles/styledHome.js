@@ -174,7 +174,7 @@ export const StyledUserName = styled.h3`
 `;
 
 export const StyledUserText = styled(motion.p)`
-    color: #666;
+    color: var(--primary-text-color);
     text-align: left;
     font-size: 0.875rem;
     margin-top: 0.75rem;

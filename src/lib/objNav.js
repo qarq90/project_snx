@@ -1,6 +1,7 @@
-import {FaDoorOpen, FaHome, FaPlus, FaUserEdit} from "react-icons/fa";
+import {FaDoorOpen, FaFire, FaHome, FaPlus, FaUserEdit} from "react-icons/fa";
 import {BiSolidMessage} from "react-icons/bi";
 import React from "react";
+import {FaCartShopping} from "react-icons/fa6";
 
 export const NavLinksTop = [
 	{
@@ -18,10 +19,22 @@ export const NavLinksTopMiddle = [
 		id: "home-link"
 	},
 	{
+		icon: <FaFire/>,
+		title: "Trending",
+		path: "/trending",
+		id: "trending-link"
+	},
+	{
 		icon: <FaPlus/>,
 		title: "Create",
 		path: "/create",
 		id: "create-link"
+	},
+	{
+		icon: <FaCartShopping/>,
+		title: "Cart",
+		path: "/cart",
+		id: "cart-link"
 	},
 	{
 		icon: <BiSolidMessage/>,

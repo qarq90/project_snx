@@ -2,7 +2,7 @@ import {ContactAccordianContainer, StyledContactSection} from "@/styles/styledCo
 import {FaClipboardQuestion} from "react-icons/fa6";
 import {Accordion, AccordionItem} from "@nextui-org/react";
 import {contactAccordionItems} from "@/lib/objContact";
-import {fadeDown, scaleUp} from "@/styles/styledAnimations";
+import {fadeDown, fadeLeft} from "@/styles/styledAnimations";
 import HeaderTitle from "@/components/HeaderTitle";
 
 export default function ContactFAQ() {
@@ -15,7 +15,7 @@ export default function ContactFAQ() {
             />
             <ContactAccordianContainer
                 className="accordian-container"
-                variants={scaleUp}
+                variants={fadeLeft}
                 initial="initial"
                 animate="show"
             >
@@ -28,7 +28,7 @@ export default function ContactFAQ() {
                             className="accordian"
                             key={item.key}
                             aria-label={item.ariaLabel}
-                            variants={scaleUp}
+                            variants={fadeLeft}
                             title={item.title}
                             style={{backgroundColor: "var(--primary-comp-bg)"}}
                         >

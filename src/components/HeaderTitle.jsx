@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import {motion} from "framer-motion";
-import {fadeDown} from "@/styles/styledAnimations";
+import {fadeLeft} from "@/styles/styledAnimations";
 
 export default function HeaderTitle({content, icon}) {
 	return (
 		<>
 			<StyledHeaderTitle
-				variants={fadeDown}
+				variants={fadeLeft}
 				initial="initial"
 				animate="show"
 			>

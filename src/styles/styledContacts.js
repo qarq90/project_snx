@@ -86,53 +86,54 @@ export const ContactAboutText = styled(motion.p)`
 `;
 
 export const ContactAccordianContainer = styled(motion.div)`
-  padding: 1rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  width: 94%;
-
-  > div {
-    text-align: left;
+    padding: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 94%;
 
     > div {
-      width: 100%;
-      border-radius: 10px;
-      background-color: var(--primary-comp-bg);
+        text-align: left;
 
-      > h2 {
-        width: auto;
-        background-color: var(--primary-comp-bg);
+        > div {
+            width: 100%;
+            border-radius: 10px;
+            background-color: var(--primary-comp-bg);
 
-        > button {
-          font-size: 1.10rem;
-          display: flex;
-          background-color: var(--primary-comp-bg);
-          width: 100%;
+            > h2 {
+                width: auto;
+                background-color: var(--primary-comp-bg);
 
-          &:hover {
-            cursor: pointer;
-          }
+                > button {
+                    font-size: 1.10rem;
+                    display: flex;
+                    background-color: var(--primary-comp-bg);
+                    width: 100%;
 
-          > div > span {
-            color: #fff;
-          }
+                    &:hover {
+                        cursor: pointer;
+                    }
 
-          > span {
-            color: #fff;
-            margin-left: auto;
-          }
+                    > div > span {
+                        color: var(--primary-text-color);
+
+                    }
+
+                    > span {
+                        margin-left: auto;
+                        color: var(--primary-theme-color);
+                    }
+                }
+            }
+
+            > section > div {
+                color: var(--primary-text-color);
+            }
+
+            > section {
+                color: var(--primary-color-black);
+            }
         }
-      }
-
-      > section > div {
-        color: #fff;
-      }
-
-      > section {
-        background-color: var(--primary-comp-bg);
-      }
     }
-  }
 `;
 
 export const ContactInputContainer = styled(motion.div)`
@@ -183,4 +184,3 @@ export const ContactReviewInput = styled(InputTextarea)`
     box-shadow: var(--primary-theme-color) 3px 3px;
   }
 `;
-

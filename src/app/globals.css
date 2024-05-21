@@ -13,6 +13,8 @@
 
     --primary-bg: rgba(20, 20, 20, 0.75);
 
+    --dropdown-text: var(--primary-theme-color);
+
     --primary-text-color: #ccc;
 
     --primary-nav-background-color: #3c3c3c;
@@ -43,7 +45,7 @@ body {
     height: 100svh;
     overflow-x: hidden;
     font-family: sans-serif;
-    background-color: #1d1d1d;
+    background-color: var(--primary-color-black);
 }
 
 .container {

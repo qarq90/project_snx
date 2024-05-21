@@ -133,6 +133,7 @@ const Nav = () => {
 		document.documentElement.style.setProperty('--primary-color-black', isDarkTheme ? '#e0ffff' : '#1d1d1d');
 		document.documentElement.style.setProperty('--primary-text-color', isDarkTheme ? '#1d1d1d' : '#008080');
 		document.documentElement.style.setProperty('--primary-comp-bg', isDarkTheme ? '#b0e0e6' : '#2c2c2c');
+		document.documentElement.style.setProperty('--dropdown-text', isDarkTheme ? '#008080' : '#000');
 	};
 
 	return (

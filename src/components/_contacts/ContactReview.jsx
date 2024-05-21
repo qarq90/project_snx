@@ -3,7 +3,7 @@ import {FaShareAlt} from "react-icons/fa";
 import {useRef} from "react";
 import {Toast} from "primereact/toast";
 import {showToast} from "@/lib/helper";
-import {fadeLeft, scaleUp} from "@/styles/styledAnimations";
+import {fadeLeft} from "@/styles/styledAnimations";
 import HeaderTitle from "@/components/HeaderTitle";
 import HeaderSub from "@/components/HeaderSub";
 
@@ -95,19 +95,19 @@ export default function ContactReview() {
                 />
             </ContactInputContainer>
             <ContactInputContainer
-                variants={scaleUp}
+                variants={fadeLeft}
                 initial="initial"
                 animate="show"
             >
                 <ContactReviewInput
-                    variants={scaleUp}
+                    variants={fadeLeft}
                     autoSize={false}
                     rows={1}
                     required={true}
                     ref={fNameRef}
                 />
                 <ContactReviewInput
-                    variants={scaleUp}
+                    variants={fadeLeft}
                     autoSize={false}
                     rows={1}
                     required={true}
@@ -125,7 +125,7 @@ export default function ContactReview() {
                 />
             </ContactInputContainer>
             <ContactInputContainer
-                variants={scaleUp}
+                variants={fadeLeft}
                 initial="initial"
                 animate="show"
             >
@@ -137,7 +137,7 @@ export default function ContactReview() {
                     ref={emailRef}/>
             </ContactInputContainer>
             <ContactInputContainer
-                variants={scaleUp}
+                variants={fadeLeft}
                 initial="initial"
                 animate="show"
             >
@@ -147,7 +147,7 @@ export default function ContactReview() {
                 />
             </ContactInputContainer>
             <ContactInputContainer
-                variants={scaleUp}
+                variants={fadeLeft}
                 initial="initial"
                 animate="show"
             >
@@ -159,7 +159,7 @@ export default function ContactReview() {
                     ref={userRef}/>
             </ContactInputContainer>
             <ContactButton
-                variants={scaleUp}
+                variants={fadeLeft}
                 initial="initial"
                 animate="show"
                 onClick={sendFeedback}
@@ -167,7 +167,7 @@ export default function ContactReview() {
                 Submit Feedback
             </ContactButton>
             <ContactButton
-                variants={scaleUp}
+                variants={fadeLeft}
                 initial="initial"
                 animate="show"
                 onClick={resetHandler}

@@ -7,7 +7,7 @@ import ContactFAQ from "@/components/_contacts/ContactFAQ";
 import ContactReview from "@/components/_contacts/ContactReview";
 import StyledProgressBar from "@/components/StyledProgressBar";
 import React from "react";
-import {scaleUp} from "@/styles/styledAnimations";
+import {fadeLeft, scaleUp} from "@/styles/styledAnimations";
 import {EmptyBlock} from "@/components/EmptyBlock";
 
 export default function Page() {
@@ -15,7 +15,7 @@ export default function Page() {
         <>
             <StyledProgressBar/>
             <PageContainer
-                variants={scaleUp}
+                variants={fadeLeft}
                 initial="initial"
                 animate="show"
                 style={{
