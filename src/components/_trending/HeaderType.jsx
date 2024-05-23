@@ -16,7 +16,7 @@ const SHeaderType = styled(motion.h1)`
   padding: 2rem 0 0;
   display: flex;
   align-items: center;
-  color: var(--primary-text-color);
+  color: var(--primary-theme-color);
   font-size: 2.25rem;
   margin-left: 4.3rem;
   width: 100%;
