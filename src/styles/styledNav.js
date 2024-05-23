@@ -3,19 +3,23 @@ import Link from "next/link";
 import {motion} from "framer-motion";
 
 export const NavContainer = styled(motion.div)`
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: var(--primary-comp-bg);
-  border-right: 4px var(--primary-theme-color) solid;
-  transition: 0.25s all linear;
-  position: fixed;
-  z-index: 10000;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--primary-comp-bg);
+    border-right: 4px var(--primary-theme-color) solid;
+    transition: 0.25s all linear;
+    position: fixed;
+    z-index: 10000;
 
-  &:hover {
-    box-shadow: 5px 0 75px rgba(0, 128, 128, 0.3);
-  }
+    &:hover {
+        box-shadow: 5px 0 75px rgba(0, 128, 128, 0.3);
+    }
+
+    @media (max-width: 768px) {
+        display: none;
+    }
 `;
 
 export const NavSubContainer = styled(motion.div)`
