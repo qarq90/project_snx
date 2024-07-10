@@ -10,19 +10,18 @@ export const POST = async (req) => {
         'Max-Age': thirtyDaysInSeconds,
         path: '/',
     };
-
     try {
         await connect();
-
         const user = await User.findOne({
             email: user_email,
+            password: user_password
         });
 
         if (user) {
             return new Response(JSON.stringify({...user, found: true}), {
                 headers: {
-                  "Content-Type": "application/json",
-                  "Set-Cookie": `session=true; Max-Age=${cookieOptions['Max-Age']}; path=${cookieOptions.path}`,
+                    "Content-Type": "application/json",
+                    "Set-Cookie": `session=${user_email}; Max-Age=${cookieOptions['Max-Age']}; path=${cookieOptions.path}`,
                 },
                 status: 200
             });

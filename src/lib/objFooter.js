@@ -1,20 +1,47 @@
-import {FaMailBulk, FaTwitter} from "react-icons/fa";
-import {FaInstagram} from "react-icons/fa6";
+import {
+	GithubIcon,
+	InstagramIcon,
+	LinkedinIcon,
+	MailIcon,
+	PhoneIcon,
+	TwitterIcon
+} from "../../public/images/icons/Icons";
 
 export const FooterLinks = [
 	{
-		icon: <FaMailBulk/>,
-		title: "Mail",
-		path: "https://gmail.com",
+		icon: <MailIcon/>,
+		title: "Email",
+		path: "mailto:snx@gmail.com",
+		text: "snx@gmail.com"
 	},
 	{
-		icon: <FaInstagram/>,
-		title: "Instagram",
-		path: "https://instagram.com",
+		icon: <PhoneIcon/>,
+		title: "Phone",
+		path: "tel:+911234567890",
+		text: "+91-1234567890"
 	},
 	{
-		icon: <FaTwitter/>,
+		icon: <TwitterIcon/>,
 		title: "Twitter",
-		path: "https://twitter.com",
+		path: "https://twitter.com/snx",
+		text: "@snx"
 	},
+	{
+		icon: <LinkedinIcon/>,
+		title: "LinkedIn",
+		path: "https://linkedin.com/company/snx",
+		text: "SnX Pvt. Ltd"
+	},
+	{
+		icon: <InstagramIcon/>,
+		title: "Instagram",
+		path: "https://instagram.com/snx",
+		text: "@snx"
+	},
+	{
+		icon: <GithubIcon/>,
+		title: "GitHub",
+		path: "https://github.com/snx",
+		text: "SnX"
+	}
 ];

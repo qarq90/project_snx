@@ -10,6 +10,7 @@ import {
 } from "@/styles/styledHome";
 import React from "react";
 import {works} from "@/lib/objHome";
+import {FaWandMagicSparkles} from "react-icons/fa6";
 
 export default function HomeWorks() {
     return (
@@ -18,7 +19,9 @@ export default function HomeWorks() {
                 <StyledContainer>
                     <StyledFlexContainer>
                         <div className="space-y-2">
-                            <StyledTitle>How It
+                            <StyledTitle>
+                                <FaWandMagicSparkles />
+                                How It
                                 Works</StyledTitle>
                             <StyledParagraph>
                                 Our 3D customizer allows you to visualize your outfit before making a purchase.

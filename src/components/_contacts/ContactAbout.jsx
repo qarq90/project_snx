@@ -1,49 +1,87 @@
-import {ContactAboutText, StyledContactSection} from "@/styles/styledContacts";
-import {FaPersonCircleQuestion} from "react-icons/fa6";
+import {FaPerson} from "react-icons/fa6";
 import {fadeLeft} from "@/styles/styledAnimations";
-import {motion} from "framer-motion";
-import HeaderTitle from "@/components/HeaderTitle";
+import {StyledTitle} from "@/styles/styledHome";
+import React from "react";
+import {styled} from "styled-components";
+import {contactAboutContent} from "@/lib/objContact";
 
-export default function ContactAbout() {
-    return (<>
-        <StyledContactSection>
-            <HeaderTitle
-                icon={<FaPersonCircleQuestion/>}
-                content={"About Us"}
-            />
-            <ContactAboutText
-                variants={fadeLeft}
-                initial="initial"
-                animate="show"
-            >
-                <motion.span
-                    variants={fadeLeft}
-                >
-                    SnX is a pioneering platform revolutionizing outfit customization through advanced 3D
-                    technology. With a vision to democratize fashion, SnX empowers individuals to express their
-                    unique style effortlessly.
-                </motion.span>
-                <br/>
-                <br/>
-                <motion.span
-                    variants={fadeLeft}
-                >
-                    Our intuitive interface offers endless customization options, from
-                    fabric selection to fit adjustments, ensuring every outfit reflects your personality. Committed
-                    to sustainability, SnX promotes eco-friendly practices and ethical sourcing. Join our community
-                    of fashion enthusiasts, designers, and trendsetters, and explore the limitless possibilities of
-                    our self-expression.
-                </motion.span>
-                <br/>
-                <br/>
-                <motion.span
-                    variants={fadeLeft}
-                >
-                    Experience the future of fashion with SnX – where creativity knows no bounds,
-                    and individuality reigns supreme. Welcome to a world where fashion meets innovation, only at
-                    SnX.
-                </motion.span>
-            </ContactAboutText>
-        </StyledContactSection>
-    </>)
+export default function ContactAbout(props) {
+	return (
+		<>
+			<AboutContainer
+				variants={fadeLeft}
+				initial="initial"
+				animate="show"
+			>
+				<div className="text-container">
+					<StyledTitle
+						variants={fadeLeft}
+					>
+						<FaPerson/> About Us
+					</StyledTitle>
+					<AboutParagraphContainer>
+						{contactAboutContent.map((content, index) => (
+							<AboutParagraph key={index} variants={fadeLeft}>
+								{content}
+								<br/>
+								<br/>
+							</AboutParagraph>
+						))}
+					</AboutParagraphContainer>
+				</div>
+			</AboutContainer>
+		</>
+	);
 }
+
+const AboutContainer = styled.div`
+    margin: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+
+    > div > h1 {
+        margin-bottom: 3rem;
+    }
+
+    @media (max-width: 768px) {
+        margin: 1.5rem;
+        width: 95%;
+    }
+
+    @media (max-width: 480px) {
+        margin: 1rem;
+        width: 100%;
+    }
+`;
+
+const AboutParagraphContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+`;
+
+const AboutParagraph = styled.div`
+    text-align: justify;
+    width: 75%;
+    font-size: 1.2rem;
+    color: var(--primary-text-color);
+
+    @media (max-width: 768px) {
+        width: 85%;
+        font-size: 1rem;
+    }
+
+    @media (max-width: 480px) {
+        width: 95%;
+        font-size: 0.9rem;
+    }
+`;

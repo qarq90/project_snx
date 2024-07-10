@@ -1,49 +1,39 @@
 "use client"
 
 import React, {useEffect, useRef, useState} from "react";
-import * as NLS from "../styles/styledNav";
+import * as NLS from "../../styles/styledNav";
 import {StyledLink, StyledNotLink} from "@/styles/styledNav";
 import {NavLinksBottom, NavLinksTop, NavLinksTopMiddle} from "@/lib/objNav";
-import "../styles/nav.css";
 import "driver.js/dist/driver.css";
-import {accountDriver, contactDriver, createDesignerDriver, createDriver, navDriver} from "@/lib/driver";
+import {accountDriver, createDesignerDriver, createDriver, navDriver} from "@/lib/driver";
 import {usePathname, useRouter} from "next/navigation";
 import {BiHelpCircle} from "react-icons/bi";
 import AccountPopup from "@/components/_account/AccountPopup";
 import useAppStore from "@/states/appState";
 import {showToast} from "@/lib/helper";
 import {FaMoon, FaSun} from "react-icons/fa";
+import {AnimatePresence} from "framer-motion";
 
-
-const Nav = () => {
+const Sidebar = () => {
 	const pathname = usePathname();
 	const router = useRouter();
 
 	const [profile, setProfile] = useState(false);
-	const [userData, setUserData] = useState([]);
 	const toastRef = useRef(null);
 
-	const {user, setUser} = useAppStore();
-
-	const handleLogin = () => {
-		router.push('/auth');
-	};
-
-	const handleSignUp = () => {
-		router.push('/auth')
-	};
+	const {setUser} = useAppStore();
 
 	const fetchUserData = async () => {
 		try {
-			if (user == null || !user._id) {
-				router.push("/auth")
-				return;
+			const email = document.cookie.split(';')[0].split('=')[1]
+			if (email === "false") {
+				throw new Error("User not found");
 			}
 
 			const options = {
 				method: "POST",
 				body: JSON.stringify({
-					email: user.email
+					email: email
 				}),
 				headers: {
 					"Content-Type": "application/json",
@@ -56,8 +46,7 @@ const Nav = () => {
 				return;
 			}
 
-			setUserData(data)
-
+			setUser(data.currentUser)
 		} catch (error) {
 			router.push("/auth");
 			console.error("Error fetching user data:", error);
@@ -65,41 +54,15 @@ const Nav = () => {
 		}
 	};
 
-
 	useEffect(() => {
 		fetchUserData().then();
 	}, []);
-
-	const deleteUser = async () => {
-		try {
-			if (!user || !user._id) {
-				return;
-			}
-
-			const options = {
-				method: "POST",
-				body: JSON.stringify({
-					deleteUserID: {userId: user._id}
-				}),
-				headers: {
-					"Content-Type": "application/json",
-				}
-			};
-
-			const res = await fetch("/api/post/delete-user", options);
-			const data = await res.json();
-
-			router.push("/auth");
-
-		} catch (error) {
-			console.error("Error deleting user:", error);
-		}
-	}
 
 
 	const handleDriverStart = () => {
 		switch (pathname) {
 			case "/":
+			case "/contact":
 				navDriver();
 				break;
 			case "/create":
@@ -109,10 +72,11 @@ const Nav = () => {
 			case "/create/new/pant":
 			case "/create/new/shoes":
 			case "/create/new/cap":
+			case "/create/recent/shirt":
+			case "/create/recent/pant":
+			case "/create/recent/shoes":
+			case "/create/recent/cap":
 				createDesignerDriver();
-				break;
-			case "/contact":
-				contactDriver();
 				break;
 			case "/account":
 				accountDriver();
@@ -123,7 +87,8 @@ const Nav = () => {
 	};
 
 	const openProfile = () => {
-		setProfile(!profile);
+		console.log("Profile Opened", profile)
+		setProfile(true);
 	}
 
 	const [isDarkTheme, setIsDarkTheme] = useState(true);
@@ -143,7 +108,7 @@ const Nav = () => {
 					<NLS.NavSubLeft className="navLinksTop">
 						<NLS.NavStyledUl>
 							{NavLinksTop.map((navLink, index) => (
-								<NLS.NavStyledLi key={index}>
+								<NLS.NavStyledLi whileHover={{scale: 0.9}} whileTap={{scale: 0.8}} key={index}>
 									<StyledLink id="project-link" href={navLink.path}>
 										<NLS.NavStyledIcon>{navLink.icon}</NLS.NavStyledIcon>
 									</StyledLink>
@@ -157,20 +122,21 @@ const Nav = () => {
 					<NLS.NavSubRight>
 						<NLS.NavStyledUl>
 							{NavLinksTopMiddle.map((navLink, index) => (
-								<NLS.NavStyledLi key={index} className="middle-links">
+								<NLS.NavStyledLi whileHover={{scale: 0.9}} whileTap={{scale: 0.8}} key={index}
+								                 className="middle-links">
 									<StyledLink id={navLink.id} href={navLink.path}>
 										<NLS.NavStyledIcon>{navLink.icon}</NLS.NavStyledIcon>
 									</StyledLink>
 								</NLS.NavStyledLi>
 							))}
-							<NLS.NavStyledLi className="middle-links">
+							<NLS.NavStyledLi whileHover={{scale: 0.9}} whileTap={{scale: 0.8}} className="middle-links">
 								<StyledNotLink id="theme-link" onClick={() => handleThemeToggle()}>
 									<NLS.NavStyledIcon onClick={() => setIsDarkTheme(!isDarkTheme)}>
 										{isDarkTheme ? <FaSun/> : <FaMoon/>}
 									</NLS.NavStyledIcon>
 								</StyledNotLink>
 							</NLS.NavStyledLi>
-							<NLS.NavStyledLi className="middle-links">
+							<NLS.NavStyledLi whileHover={{scale: 0.9}} whileTap={{scale: 0.8}} className="middle-links">
 								<StyledNotLink id="help-button" onClick={() => handleDriverStart()}>
 									<NLS.NavStyledIcon>
 										<BiHelpCircle/>
@@ -185,7 +151,7 @@ const Nav = () => {
 					<NLS.NavSubLeft className="navLinksBottom">
 						<NLS.NavStyledUl>
 							{NavLinksBottom.map((navLink, index) => (
-								<NLS.NavStyledLi key={index}>
+								<NLS.NavStyledLi whileHover={{scale: 0.9}} whileTap={{scale: 0.8}} key={index}>
 									<StyledNotLink id="account-link" onClick={openProfile}>
 										<NLS.NavStyledIcon>{navLink.icon}</NLS.NavStyledIcon>
 									</StyledNotLink>
@@ -194,15 +160,15 @@ const Nav = () => {
 						</NLS.NavStyledUl>
 					</NLS.NavSubLeft>
 				</NLS.NavSubContainer>
+				<AnimatePresence>
+					{
+						profile &&
+						<AccountPopup setProfile={setProfile}/>
+					}
+				</AnimatePresence>
 			</NLS.NavContainer>
-			{
-				profile ?
-					<>
-						<AccountPopup user={user} setProfile={setProfile}/>
-					</> : <></>
-			}
 		</>
 	);
 };
 
-export default Nav;
+export default Sidebar;

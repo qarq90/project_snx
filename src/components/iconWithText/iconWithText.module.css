@@ -1,14 +1,39 @@
 .img {
     max-width: 40px;
 }
+
 .text {
     color: black;
     font-size: 1.5rem;
     font-family: "Agency FB", sans-serif;
     margin: 0 10px;
 }
+
 .wrapper {
     display: flex;
     align-items: center;
     margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+    .img {
+        position: absolute;
+        left: 0;
+        top: 5%;
+        width: 60px !important;
+        height: 40px;
+        max-width: 60px;
+    }
+
+    .active {
+        scale: 0.9;
+        transition: scale .2s ease;
+    }
+
+    .wrapper {
+        position: relative;
+        width: 60px !important;
+        height: 40px;
+        margin: 0;
+    }
 }

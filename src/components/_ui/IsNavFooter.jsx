@@ -1,17 +1,20 @@
 "use client"
 
 import React, {useEffect} from 'react'
-import Nav from "@/components/Nav";
 import {usePathname} from "next/navigation";
-import Footer from "@/components/Footer";
+import Footer from "@/components/_ui/Footer";
 import {NextUIProvider} from "@nextui-org/react";
 import useAppStore from "@/states/appState";
+import Sidebar from "@/components/_ui/Sidebar";
+import useMobileDetect from "@/components/UseMobileDetect";
+import MobileNavBar from "@/components/_ui/MobileNavBar";
 
 const IsNavFooter = ({children}) => {
 	const pathname = usePathname();
 	const isLoginPage = pathname.includes("/auth");
 	const isCreatePage = pathname.includes("/create")
 
+	const {isMobile} = useMobileDetect()
 	const {setUser} = useAppStore();
 
 	useEffect(() => {
@@ -33,7 +36,8 @@ const IsNavFooter = ({children}) => {
 
 	return (
 		<>
-			{!isLoginPage && <Nav/>}
+			{!isLoginPage && <Sidebar/>}
+			{(isMobile() && !isLoginPage) && <MobileNavBar/>}
 			<NextUIProvider>
 				{children}
 				{!isLoginPage && !isCreatePage && <Footer/>}

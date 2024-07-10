@@ -25,7 +25,7 @@ export const POST = async (req) => {
         return new Response(JSON.stringify({user, message: "Account Created"}), {
             headers: {
                 "Content-Type": "application/json",
-                "Set-Cookie": `session=true; Max-Age=${cookieOptions['Max-Age']}; path=${cookieOptions.path}`,
+                "Set-Cookie": `session=${signupEmail}; Max-Age=${cookieOptions['Max-Age']}; path=${cookieOptions.path}`,
             },
             status: 201
         });

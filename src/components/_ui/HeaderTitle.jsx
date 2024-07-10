@@ -33,4 +33,8 @@ export const StyledHeaderTitle = styled(motion.h1)`
     > svg {
         margin-right: 2rem;
     }
+
+    @media (max-width: 768px) {
+        display: none;
+    }
 `;

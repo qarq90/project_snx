@@ -1,15 +1,14 @@
-import {useFrame, useLoader} from "@react-three/fiber"
+import {useFrame} from "@react-three/fiber"
 import {useEffect, useRef} from "react"
 import {a} from "@react-spring/three"
 import * as THREE from "three"
-import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader"
 import useStore from "../../states/modelState"
 import Decals, {createDecal} from "./Decals"
 import useDecalStore from "@/states/decalState";
 import {process_image} from "@/lib/imageUtils";
 import {useGLTF} from "@react-three/drei";
 
-const ShirtModel = ({modelRef, groupRef,url, rotation, setModelRayData}) => {
+const ShirtModel = ({modelRef, groupRef, url, rotation, setModelRayData}) => {
     // GLOBAL STATE
     const {
         animation,
@@ -115,22 +114,25 @@ const ShirtModel = ({modelRef, groupRef,url, rotation, setModelRayData}) => {
     // RESET RAYCAST POS AND NORMAL
     const removeRaycast = () => setModelRayData(null)
 
-    return (<a.group ref={groupRef} rotation={rotation} castShadow scale={scale}>
-        <mesh
-            ref={modelRef}
-            onPointerMove={passRaycast}
-            onPointerOut={removeRaycast}
-            onPointerDown={handleDecal}
-            castShadow={true}
-            geometry={nodes.Object_5.geometry} material={materials['SSC_Grey_Sweatpants.001']}
-            scale={0.0015}
-        >
-            <meshStandardMaterial
-                color={modelColor}
-            />
-        </mesh>
-        <Decals decals={decals}/>
-    </a.group>)
+    return (
+        <a.group ref={groupRef} rotation={rotation} castShadow scale={scale}
+                 position-x={-2}>
+            <mesh
+                ref={modelRef}
+                onPointerMove={passRaycast}
+                onPointerOut={removeRaycast}
+                onPointerDown={handleDecal}
+                castShadow={true}
+                geometry={nodes.Object_5.geometry} material={materials['SSC_Grey_Sweatpants.001']}
+                scale={0.0015}
+            >
+                <meshStandardMaterial
+                    color={modelColor}
+                />
+            </mesh>
+            <Decals decals={decals}/>
+        </a.group>
+    )
 }
 
 export default ShirtModel

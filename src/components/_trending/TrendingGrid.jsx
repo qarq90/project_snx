@@ -7,10 +7,10 @@ export default function TrendingGrid() {
 
 	return (
 		<>
-			<TrendingSection headerContent="Hot Shirts" headerIcon={<FaShirt/>} carouselData={trendingCardsTshirt}/>
-			<TrendingSection headerContent="Styled Pants" headerIcon={<PiPantsFill/>} carouselData={trendingCardsPant}/>
-			<TrendingSection headerContent="Top Shoes" headerIcon={<PiSneakerFill/>} carouselData={trendingCardsShoes}/>
-			<TrendingSection headerContent="Trendy Caps" headerIcon={<PiBaseballCap/>}
+			<TrendingSection modelType="shirt" headerContent="Hot Shirts" headerIcon={<FaShirt/>} carouselData={trendingCardsTshirt}/>
+			{/*<TrendingSection modelType="shirt" headerContent="Styled Pants" headerIcon={<PiPantsFill/>} carouselData={trendingCardsPant}/>*/}
+			<TrendingSection modelType="shoes" headerContent="Top Shoes" headerIcon={<PiSneakerFill/>} carouselData={trendingCardsShoes}/>
+			<TrendingSection modelType="cap" headerContent="Trendy Caps" headerIcon={<PiBaseballCap/>}
 			                 carouselData={trendingCardsCaps}/>
 		</>
 	)

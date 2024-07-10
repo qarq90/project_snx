@@ -12,9 +12,14 @@ export default function HeaderSub({content}) {
 }
 
 const SHeaderSub = styled(motion.h1)`
-  padding: 1rem 0 0.5rem;
-  color: var(--primary-text-color);
-  font-size: 1.25rem;
-  margin-left: 2rem;
-  width: 100%;
+	padding: 1rem 0 0.5rem;
+	color: var(--primary-text-color);
+	font-size: 1.25rem;
+	margin-left: 2rem;
+	width: 100%;
+
+
+	@media (max-width: 768px) {
+		margin-left: 1rem;
+	}
 `;

@@ -13,13 +13,18 @@ export default function StyledProgressBar() {
 }
 
 const StyledBar = styled(motion.div)`
-  position: fixed;
-  top: 0;
-  left: 5rem;
-  right: 0;
-  height: 4px;
-  background: var(--primary-theme-color);
-  width: 200vh;
-  transform-origin: 0%;
-  z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 5rem;
+    right: 0;
+    height: 4px;
+    background: var(--primary-theme-color);
+    width: 200vh;
+    transform-origin: 0%;
+    z-index: 100;
+    @media (max-width: 768px) {
+        display: none;
+		left: 0;
+	    width: 100vw;
+    }
 `;
