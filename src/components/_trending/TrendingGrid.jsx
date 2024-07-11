@@ -1,4 +1,4 @@
-import {FaShirt} from "react-icons/fa6";
+import  {FaShirt} from "react-icons/fa6";
 import {PiBaseballCap, PiPantsFill, PiSneakerFill} from "react-icons/pi";
 import TrendingSection from "@/components/_trending/TrendingSection";
 import {trendingCardsCaps, trendingCardsPant, trendingCardsShoes, trendingCardsTshirt} from "@/lib/objTrending";
