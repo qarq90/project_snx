@@ -1,18 +1,59 @@
-import {NextResponse} from "next/server";
-import connect from "@/lib/db";
-import Cart from "@/models/Cart";
+import { NextResponse } from "next/server";
+import pool from "@/lib/neon/config";
 
 export const POST = async (req) => {
-    const {email, name, img, type, price, quantity} = await req.json();
+    const {
+        email,
+        name,
+        img,
+        type,
+        price,
+        quantity
+    } = await req.json();
+
     try {
-        await connect();
+        const query = `
+            INSERT INTO cart (
+                email,
+                name,
+                img,
+                type,
+                price,
+                quantity
+            )
+            VALUES (
+                $1,
+                $2,
+                $3,
+                $4,
+                $5,
+                $6
+            )
+        `;
 
-        const cartItem = new Cart({email, name, img, type, price, quantity});
-        await cartItem.save();
+        const values = [
+            email,
+            name,
+            img,
+            type,
+            price,
+            quantity
+        ];
 
-        return NextResponse.json({message: 'Cart was saved'});
+        await pool.query(query, values);
+
+        return NextResponse.json({
+            message: "Cart was saved"
+        });
+
     } catch (error) {
         console.error(error);
-        return NextResponse.json({message: 'Error saving item into cart: ' + error.message});
+
+        return NextResponse.json(
+            {
+                message: "Error saving item into cart: " + error.message
+            },
+            { status: 500 }
+        );
     }
 };

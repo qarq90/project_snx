@@ -1,31 +1,43 @@
 import { NextResponse } from "next/server";
-import connect from "@/lib/db";
-import Cart from "@/models/Cart";
+import pool from "@/lib/neon/config";
 
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
 export const GET = async (req) => {
     try {
         const { searchParams } = req.nextUrl;
-        const email = searchParams.get('email');
+        const email = searchParams.get("email");
 
         if (!email) {
-            return NextResponse.json({ message: 'Email parameter is required' });
+            return NextResponse.json(
+                { message: "Email parameter is required" },
+                { status: 400 }
+            );
         }
 
-        await connect();
+        const query = `
+            SELECT *
+            FROM cart
+            WHERE email = $1
+            ORDER BY "createdAt" DESC
+        `;
 
-            const cartItems = await Cart.find({ email }).sort({ createdAt: -1 });
+        const values = [email];
 
-        console.log(cartItems)
+        const result = await pool.query(query, values);
 
-        if (Array.isArray(cartItems)) {
-            return NextResponse.json({ items: cartItems });
-        }
+        console.log(result.rows);
 
-        return NextResponse.json({ items: [cartItems] });
+        return NextResponse.json({
+            items: result.rows
+        });
+
     } catch (error) {
-        console.log(error);
-        return NextResponse.json({ message: 'Error fetching cart items: ' + error }, { status: 500 });
+        console.error(error);
+
+        return NextResponse.json(
+            { message: "Error fetching cart items: " + error.message },
+            { status: 500 }
+        );
     }
-}
+};

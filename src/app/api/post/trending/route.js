@@ -1,38 +1,45 @@
-import {NextResponse} from "next/server";
-import Model from "@/models/Model.js"
-import connect from "@/lib/db";
-
-// export const dynamic = 'force-dynamic'
+import { NextResponse } from "next/server";
+import pool from "@/lib/neon/config";
 
 export const POST = async (request) => {
-	try {
-		const {modelType} = await request.json()
+    try {
+        const { modelType } = await request.json();
 
-		await connect()
+        const query = `
+            SELECT *
+            FROM models
+            WHERE "modelType" = $1
+            ORDER BY "createdAt" DESC
+        `;
 
-		let result = await Model.find(
-			{
-				modelType: modelType,
-			})
+        const values = [modelType];
 
-		console.log(result)
+        const result = await pool.query(query, values);
 
-		if (result) {
-			return NextResponse.json({
-				message: 'Models Fetched Successfully.',
-				status: true,
-				result: result
-			})
-		} else {
-			return NextResponse.json({
-				message: 'Failed to fetch Models.',
-				status: false,
-				result: result
-			})
-		}
+        console.log(result.rows);
 
-	} catch (error) {
-		console.log(error);
-		return NextResponse.json({message: 'Error Saving Model: ' + error});
-	}
-}
+        if (result.rows.length > 0) {
+            return NextResponse.json({
+                message: "Models Fetched Successfully.",
+                status: true,
+                result: result.rows
+            });
+        }
+
+        return NextResponse.json({
+            message: "No models found.",
+            status: false,
+            result: []
+        });
+
+    } catch (error) {
+        console.error(error);
+
+        return NextResponse.json(
+            {
+                message: "Error fetching models: " + error.message
+            },
+            { status: 500 }
+        );
+    }
+};

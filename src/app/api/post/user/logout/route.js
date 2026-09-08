@@ -1,17 +1,26 @@
-import {NextResponse} from "next/server";
+import { NextResponse } from "next/server";
 
-export const GET = async (req) => {
+export const GET = async () => {
     try {
-        return new Response("Session Ended", {
-            headers: {
-                "Content-Type": "application/json",
-                "Set-Cookie": "session=false; Path=/;",
-                "Location": "/auth"
-            },
-            status: 302
+        const response = NextResponse.redirect(
+            new URL("/auth", "http://localhost:3000")
+        );
+
+        response.cookies.set("session", "", {
+            maxAge: 0,
+            path: "/"
         });
+
+        return response;
+
     } catch (error) {
-        console.log(error);
-        return NextResponse.json({message: 'Error Logging In: ' + error});
+        console.error(error);
+
+        return NextResponse.json(
+            {
+                message: "Error Ending Session: " + error.message
+            },
+            { status: 500 }
+        );
     }
-}
+};
