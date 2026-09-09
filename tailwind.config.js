@@ -15,6 +15,7 @@ module.exports = {
 			spaceBlack: "#1c1c1c",
 			cyberRed: "#FF003C",
 		},
+		
 		extend: {
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
