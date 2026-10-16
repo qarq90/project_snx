@@ -6,7 +6,7 @@ import {FaPlus} from "react-icons/fa"
 import {Ripple} from "primereact/ripple";
 import useDecalStore from "@/states/decalState";
 
-const DecalManager = () => {
+const DecalManager = ({setIsPanelOpen}) => {
     const {decalImages, modelColor, setDecalImages, removeDecal} = useStore()
 
     const {decalsData, setDecalsData} = useDecalStore()
@@ -31,7 +31,7 @@ const DecalManager = () => {
 
     return (
         <div className={s.imagesWrapper}>
-            <AddDecal/>
+            <AddDecal setIsPanelOpen={setIsPanelOpen}/>
             {decalImages.map((decal, i) => {
                 return (
                     <div
@@ -65,7 +65,7 @@ const DecalManager = () => {
 
 export default DecalManager
 
-const AddDecal = () => {
+const AddDecal = ({setIsPanelOpen}) => {
     const inputRef = useRef()
     const {setDecalPath, setDecalName} = useStore()
 
@@ -76,6 +76,7 @@ const AddDecal = () => {
 
         reader.onload = function (event) {
             const base64String = event.target.result;
+            setIsPanelOpen(false)
             setDecalPath(base64String)
             setDecalName(name)
         };

@@ -37,3 +37,59 @@
 .btnGroup > *:hover {
     background-color: var(--primary-theme-color);
 }
+
+
+.close {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        position: absolute;
+        z-index: 6000;
+        left: 0;
+        bottom: -100%;
+        height: calc(100dvh - 4rem);
+        transition: all .5s ease;
+        background: var(--primary-color-black);
+    }
+
+    .containerInner {
+        width: fit-content;
+        display: flex;
+        gap: 20px;
+        padding: 40px;
+        flex-direction: column;
+        margin-inline: auto;
+    }
+
+    .active {
+        bottom: 0;
+    }
+
+    .close {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 7px;
+        font-size: 1.2rem;
+        color: white;
+        cursor: pointer;
+        background: crimson;
+    }
+
+    .inverse {
+        position: absolute;
+        top: 10px;
+        right: -27%;
+        z-index: 10000;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        rotate: -45deg;
+    }
+}

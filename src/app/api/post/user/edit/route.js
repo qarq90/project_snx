@@ -1,36 +1,77 @@
-import {NextResponse} from "next/server";
-import connect from "@/lib/db";
-import User from "@/models/User";
+import { NextResponse } from "next/server";
+import pool from "@/lib/neon/config";
 
 export const POST = async (req) => {
-    const {editedUserDetails} = await req.json();
 
-    const {updateUserID, editedUsername, editedEmail, editedPassword, editedPhone,} = editedUserDetails;
-    const {userId} = upadateUserID.userId;
+    const { editedUserDetails } = await req.json();
+
+    const {
+        updateUserID,
+        editedUsername,
+        editedEmail,
+        editedPassword,
+        editedPhone
+    } = editedUserDetails;
+
+    // updateUserID should contain { userId: "..." }
+    const userId = updateUserID?.userId;
+
+    if (!userId) {
+        return NextResponse.json(
+            { message: "User ID is missing" },
+            { status: 400 }
+        );
+    }
 
     try {
-        await connect();
+        console.log(editedUserDetails);
 
-        console.log(editedUserDetails)
+        const query = `
+            UPDATE users
+            SET
+                username = $1,
+                email = $2,
+                password = $3,
+                phone = $4
+            WHERE id = $5
+            RETURNING *
+        `;
 
-        const updateCurrentUser = await User.updateOne({_id: userId}, {
-            $set: {
-                username: editedUsername,
-                email: editedEmail,
-                password: editedPassword,
-                phone: editedPhone
-            }
+        const values = [
+            editedUsername,
+            editedEmail,
+            editedPassword,
+            editedPhone,
+            userId
+        ];
+
+        const updatedUser = await pool.query(query, values);
+
+        if (updatedUser.rows.length > 0) {
+            console.log("Account Updated Successfully");
+
+            return NextResponse.json({
+                found: true,
+                message: "Account Updated Successfully",
+                user: updatedUser.rows[0]
+            });
+        }
+
+        console.log("No matching user found to update");
+
+        return NextResponse.json({
+            found: false,
+            message: "User not found"
         });
 
-        if (updateCurrentUser.modifiedCount > 0) {
-            console.log("Account Updated Successfully");
-            return NextResponse.json({found: true, message: 'Account Updated Successfully', user: editedUserDetails});
-        } else {
-            console.log("No matching document found to update");
-            return NextResponse.json({found: false});
-        }
     } catch (error) {
-        console.log("Error Updating Account:", error);
-        return NextResponse.json({message: 'Error Updating Account: ' + error});
+        console.error("Error Updating Account:", error);
+
+        return NextResponse.json(
+            {
+                message: "Error Updating Account: " + error.message
+            },
+            { status: 500 }
+        );
     }
 };

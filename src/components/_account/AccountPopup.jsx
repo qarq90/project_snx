@@ -15,10 +15,14 @@ import {useRouter} from "next/navigation";
 import {FaTrashCan} from "react-icons/fa6";
 import {FaDoorOpen} from "react-icons/fa";
 import {motion} from "framer-motion";
-import Link from "next/link";
+import {fadeDown, fadeLeft, fadeLeftToRight, fadeRight} from "@/styles/styledAnimations";
+import useMobileDetect from "@/components/UseMobileDetect";
+import useAppStore from "@/states/appState";
 
-export default function AccountPopup({user, setProfile}) {
+export default function AccountPopup({setProfile}) {
     const router = useRouter();
+    const {user} = useAppStore();
+    const {isMobile} = useMobileDetect();
 
     const deleteUser = async () => {
         try {
@@ -39,7 +43,7 @@ export default function AccountPopup({user, setProfile}) {
             const res = await fetch("/api/post/user/delete", options);
             const data = await res.json();
 
-            router.push("/auth");
+            // router.push("/auth");
         } catch (error) {
             console.error("Error deleting user:", error);
         }
@@ -63,12 +67,12 @@ export default function AccountPopup({user, setProfile}) {
 
     return (
         <>
-            <Head>
-                <title>{metadataAccount.title}</title>
-                <meta name="description" content={metadataAccount.description}/>
-                <link rel="manifest" href="/manifest.json"/>
-            </Head>
-            <AccountPop ref={wrapperRef}>
+            <AccountPop ref={wrapperRef}
+                        variants={isMobile() ? fadeLeftToRight : fadeRight}
+                        initial="initial"
+                        animate="show"
+                        exit="exit"
+            >
                 <AccountContainer>
                     <StyledTopBanner>
                         <StyledUserAvatar>

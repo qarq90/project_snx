@@ -1,16 +1,33 @@
-import {NextResponse} from "next/server";
-import connect from "@/lib/db";
-import User from "@/models/User";
+import { NextResponse } from "next/server";
+import pool from "@/lib/neon/config";
 
 export const POST = async (req) => {
-    const {email} = await req.json();
+    const { email } = await req.json();
 
     try {
-        await connect()
-        const currentUser = await User.findOne().where({email: email});
-        return NextResponse.json({currentUser: currentUser});
+        const query = `
+            SELECT *
+            FROM users
+            WHERE email = $1
+            LIMIT 1
+        `;
+
+        const values = [email];
+
+        const result = await pool.query(query, values);
+
+        const currentUser = result.rows[0] || null;
+
+        return NextResponse.json({
+            currentUser
+        });
+
     } catch (error) {
-        console.log(error);
-        return NextResponse.json({message: 'Error Creating Account: ' + error});
+        console.error(error);
+
+        return NextResponse.json(
+            { message: "Error fetching user: " + error.message },
+            { status: 500 }
+        );
     }
-}
+};

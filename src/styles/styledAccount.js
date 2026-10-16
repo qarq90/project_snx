@@ -3,16 +3,24 @@ import {motion} from "framer-motion";
 import {Avatar} from "primereact/avatar";
 
 export const AccountPop = styled(motion.div)`
-  z-index: 1002;
-  position: fixed;
-  bottom: 10px;
-  left: 6rem;
-  height: auto;
-  width: 400px;
-  box-shadow: 0 0 .7rem rgba(0,128,128,0.5);
-  border: var(--primary-theme-color) 3px solid;
-  background-color: var(--primary-comp-bg);
-  padding: 1rem;
+    z-index: -1;
+    position: fixed;
+    bottom: 10px;
+    left: 6rem;
+    height: auto;
+    width: 400px;
+    box-shadow: 0 0 .7rem rgba(0, 128, 128, 0.5);
+    border: var(--primary-theme-color) 3px solid;
+    background-color: var(--primary-comp-bg);
+    padding: 1rem;
+
+    @media (max-width: 768px) {
+        left: 0;
+        top: 4.5rem;
+        width: 100%;
+        height: fit-content;
+        padding: 1.8rem 1rem;
+    }
 `;
 
 export const AccountContainer = styled(motion.div)`
@@ -227,7 +235,6 @@ export const StyledUserAvatar = styled(Avatar)`
   height: 7rem;
   background-color: var(--primary-text-color);
   font-size: 2rem;
-  margin-top: 0.8rem;
   border-radius: 100%;
   font-weight: bold;
   color: var(--primary-text-color);

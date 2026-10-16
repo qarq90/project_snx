@@ -9,7 +9,7 @@ export const click = {
 		scale: 0.5,
 		transition: {duration: 1.25},
 	},
-};
+}
 
 // -------------------------------------------------
 
@@ -37,7 +37,7 @@ export const fadeUp = {
 			duration: 0.75,
 		},
 	},
-};
+}
 
 export const fadeDown = {
 	initial: {
@@ -48,17 +48,23 @@ export const fadeDown = {
 		y: 0,
 		opacity: 1,
 		transition: {
-			duration: 1,
+			type: 'spring',
+			stiffness: 300,
+			damping: 20,
+			duration: 0.25,
 		},
 	},
 	exit: {
 		y: -100,
 		opacity: 0,
 		transition: {
-			duration: 0.75,
+			type: 'spring',
+			stiffness: 300,
+			damping: 20,
+			duration: 0.25,
 		},
 	},
-};
+}
 
 export const fadeConDown = {
 	initial: {
@@ -79,28 +85,34 @@ export const fadeConDown = {
 			duration: 0.75,
 		},
 	},
-};
+}
 
 export const fadeConUp = {
 	initial: {
-		y: 100,
+		y: -100,
 		opacity: 0,
 	},
 	show: {
 		y: 0,
 		opacity: 1,
 		transition: {
-			duration: 0.75,
+			type: 'spring',
+			stiffness: 300,
+			damping: 20,
+			duration: 0.25,
 		},
 	},
 	exit: {
 		y: -100,
 		opacity: 0,
 		transition: {
+			type: 'spring',
+			stiffness: 200,
+			damping: 20,
 			duration: 0.75,
 		},
 	},
-};
+}
 
 export const fadeLeft = {
 	initial: {
@@ -124,10 +136,9 @@ export const fadeLeft = {
 			duration: 0.75,
 		},
 	},
-};
+}
 
-
-export const fadeRight = {
+export const fadeLeftToRight = {
 	initial: {
 		x: 100,
 		opacity: 0,
@@ -136,17 +147,51 @@ export const fadeRight = {
 		x: 0,
 		opacity: 1,
 		transition: {
-			duration: 1,
+			type: 'spring',
+			stiffness: 300,
+			damping: 20,
+			duration: 0.25,
 		},
 	},
 	exit: {
-		x: 100,
+		x: -100,
 		opacity: 0,
 		transition: {
+			type: 'spring',
+			stiffness: 200,
+			damping: 20,
 			duration: 0.75,
 		},
 	},
-};
+}
+
+
+export const fadeRight = {
+	initial: {
+		x: -100,
+		opacity: 0,
+	},
+	show: {
+		x: 0,
+		opacity: 1,
+		transition: {
+			type: 'spring',
+			stiffness: 300,
+			damping: 20,
+			duration: 0.25,
+		},
+	},
+	exit: {
+		x: -100,
+		opacity: 0,
+		transition: {
+			type: 'spring',
+			stiffness: 200,
+			damping: 20,
+			duration: 0.75,
+		},
+	},
+}
 
 // -------------------------------------------------
 
@@ -172,7 +217,7 @@ export const scaleUp = {
 			duration: 0.75,
 		},
 	},
-};
+}
 
 export const scaleUpCard = {
 	initial: {
@@ -194,7 +239,7 @@ export const scaleUpCard = {
 			duration: 0.75,
 		},
 	},
-};
+}
 
 export const child = {
 	initial: {
@@ -245,7 +290,7 @@ export const fadeTopRight = {
 			duration: 0.75,
 		},
 	},
-};
+}
 
 export const fadeBottomLeft = {
 	initial: {
@@ -269,7 +314,7 @@ export const fadeBottomLeft = {
 			duration: 0.75,
 		},
 	},
-};
+}
 
 export const fadeBottomRight = {
 	initial: {
@@ -293,7 +338,7 @@ export const fadeBottomRight = {
 			duration: 0.75,
 		},
 	},
-};
+}
 
 export const fadeTopLeft = {
 	initial: {
@@ -317,7 +362,13 @@ export const fadeTopLeft = {
 			duration: 0.75,
 		},
 	},
-};
+}
+
+// -------------------------------------------------
+
+// MISC
+
+// -------------------------------------------------
 
 export const accountSwipeIn = {
 	initial: {
@@ -338,4 +389,14 @@ export const accountSwipeIn = {
 			duration: 0.75,
 		},
 	},
-};
+}
+
+export const shake = {
+	hover: {
+		x: [0, -10, 10, -10, 10, -5, 5, -5, 5, 0],
+		transition: {
+			duration: 0.5,
+			ease: "easeInOut"
+		}
+	}
+}

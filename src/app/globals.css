@@ -8,8 +8,8 @@
     --primary-color-yellow: #fdf800;
     --primary-color-blue: #02d7f2;
     --primary-color-red: #FF003C;
-    --primary-color-black: #1d1d1d;
-    --primary-comp-bg: #2c2c2c;
+    --primary-color-black: #181818;
+    --primary-comp-bg: #302f2f;
 
     --primary-bg: rgba(20, 20, 20, 0.75);
 
@@ -17,7 +17,7 @@
 
     --primary-text-color: #ccc;
 
-    --primary-nav-background-color: #3c3c3c;
+    --primary-nav-background-color: #282828;
     --primary-nav-text-color: #fff;
 }
 
@@ -216,15 +216,18 @@ body {
 }
 
 .p-toast-message-icon {
+    color: var(--primary-text-color);
     display: none;
 }
 
 .p-toast-message-content {
+    color: var(--primary-text-color);
     padding: 10px;
     align-items: center;
 }
 
 .p-toast-message {
+    color: var(--primary-text-color);
     border-style: solid;
     border-width: 0 0 0 6px;
     border-radius: 0;
@@ -244,4 +247,43 @@ button::-moz-focus-inner,
     outline-offset: revert !important;
     -moz-outline-radius: revert !important;
     box-shadow: revert !important;
+}
+
+
+@media (max-width: 768px) {
+    .p-splitbutton-defaultbutton.p-button.p-component.p-button-icon-only.p-button-raised {
+        padding-right: 0 !important;
+    }
+
+    .export-glb-div {
+        bottom: 20px;
+        right: 0;
+        left: 50%;
+        translate: -50%;
+        gap: 10px;
+    }
+
+    .export-glb-div button {
+        background: var(--primary-color-black) !important
+    }
+
+    .enter {
+        top: -50% !important;
+        height: 60px !important;
+    }
+
+    .p-toast.p-component {
+        right: 0 !important;
+        left: 50% !important;
+        translate: -50% !important;
+        top: 5rem !important;
+    }
+}
+
+a:focus,
+input:focus,
+button:focus,
+textarea:focus,
+select:focus {
+    outline: none !important;
 }

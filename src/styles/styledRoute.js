@@ -1,21 +1,21 @@
 import styled from "styled-components";
 
 export const RouteAuthContainer = styled.div`
-  box-shadow: var(--primary-theme-color) 0 0 5px 3px;
-  transition: 0.25s all linear;
-  padding: 2rem;
-  position: fixed;
-  top: 30%;
-  left: 30%;
-  width: 40%;
-  height: 40%;
-  background-color: var(--primary-comp-bg);
-  z-index: 10000;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+    box-shadow: var(--primary-theme-color) 0 0 5px 3px;
+    transition: 0.25s all linear;
+    padding: 2rem;
+    position: fixed;
+    top: 30%;
+    left: 30%;
+    width: 40%;
+    height: 40%;
+    background-color: var(--primary-comp-bg);
+    z-index: 10000;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 `;
 
 export const RouteTitle = styled.h1`

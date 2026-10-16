@@ -25,7 +25,6 @@ export default function Page() {
 		const data = await res.json()
 		if (data.models)
 			setModels(data.models)
-		console.log("DATA.MODELS", typeof data.models, data.models)
 	}
 
 

@@ -20,10 +20,24 @@ export const navDriver = () => {
 				}
 			},
 			{
+				element: '#trending-link',
+				popover: {
+					title: 'Trending',
+					description: 'Discover what\'s trending now. Stay up-to-date with the latest and most popular items, topics, and activities on SnX.'
+				}
+			},
+			{
 				element: '#create-link',
 				popover: {
 					title: 'Create',
 					description: 'Initiate the creation of new outfits. Get started on designing and crafting your latest ensemble with our intuitive outfit customization tools.'
+				}
+			},
+			{
+				element: '#cart-link',
+				popover: {
+					title: 'Cart',
+					description: 'View and manage the items in your cart. Adjust quantities, remove items, and proceed to checkout to complete your purchase.'
 				}
 			},
 			{
@@ -188,13 +202,6 @@ export const contactDriver = () => {
 				},
 			},
 			{
-				element: '#faq',
-				popover: {
-					title: 'FAQ',
-					description: 'Find answers to frequently asked questions. Design shoes now and explore our FAQ section.'
-				},
-			},
-			{
 				element: '#contact-links',
 				popover: {
 					title: 'Contact Links',
@@ -202,10 +209,17 @@ export const contactDriver = () => {
 				},
 			},
 			{
-				element: '#recents',
+				element: '#faq',
 				popover: {
-					title: 'Recents',
-					description: 'View your recent creations and explore your design history. Check out your recent designs.'
+					title: 'FAQ',
+					description: 'Find answers to frequently asked questions. Design shoes now and explore our FAQ section.'
+				},
+			},
+			{
+				element: '#send-feedback',
+				popover: {
+					title: 'Send Feedback',
+					description: 'We value your feedback! Share your thoughts and help us improve our service.'
 				},
 			}
 		]

@@ -18,24 +18,24 @@ export const NavLinksTopMiddle = [
 		path: "/",
 		id: "home-link"
 	},
-	{
-		icon: <FaFire/>,
-		title: "Trending",
-		path: "/trending",
-		id: "trending-link"
-	},
+	// {
+	// 	icon: <FaFire/>,
+	// 	title: "Trending",
+	// 	path: "/trending",
+	// 	id: "trending-link"
+	// },
 	{
 		icon: <FaPlus/>,
 		title: "Create",
 		path: "/create",
 		id: "create-link"
 	},
-	{
-		icon: <FaCartShopping/>,
-		title: "Cart",
-		path: "/cart",
-		id: "cart-link"
-	},
+	// {
+	// 	icon: <FaCartShopping/>,
+	// 	title: "Cart",
+	// 	path: "/cart",
+	// 	id: "cart-link"
+	// },
 	{
 		icon: <BiSolidMessage/>,
 		title: "Contact",

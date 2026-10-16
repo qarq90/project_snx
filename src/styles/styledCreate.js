@@ -8,6 +8,7 @@ export const CardGrid = styled.div`
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
     position: relative;
+    margin-bottom: 1rem;
 
     > .recent-loader {
         width: 100%;
@@ -16,38 +17,48 @@ export const CardGrid = styled.div`
         grid-row: span 2;
         background: crimson;
     }
+
+    @media (max-width: 768px) {
+        grid-template-rows: 3.75rem 1fr 1fr;
+    }
 `;
 
 export const StyledBlock = styled(motion.div)`
-    border-radius: 0;
-    background: var(--primary-comp-bg);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 200px;
-    height: 200px;
-    transition: all 0.2s ease;
-    cursor: pointer;
+  border-radius: 0;
+  background: var(--primary-comp-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  box-shadow: 0 0 0.5rem rgba(0,0,0,0.5);
+  
+  &:active {
+    transform: scale(0.95);
+  }
 
-    &:active {
-        transform: scale(0.95);
-    }
+  &:hover {
+    box-shadow: var(--primary-theme-color) 0 0 5px 3px;
+  }
 
-    &:hover {
-        box-shadow: var(--primary-theme-color) 0 0 5px 3px;
-    }
+  > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-    > img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+  > .inactive {
+    filter: invert(7%) sepia(17%) saturate(2%) hue-rotate(314deg) brightness(98%) contrast(89%);
+    width: 55%;
+    height: 55%;
+  }
 
-    > .inactive {
-        filter: invert(7%) sepia(17%) saturate(2%) hue-rotate(314deg) brightness(98%) contrast(89%);
-        width: 55%;
-        height: 55%;
-    }
+  @media (max-width: 768px) {
+    width: 130px;
+    height: 130px;
+  }
 `;
 
 export const BlockIcon = styled(Link)`
@@ -66,11 +77,17 @@ export const BlockIcon = styled(Link)`
 `;
 
 export const CardGridHeader = styled(motion.div)`
-    position: absolute;
-    top: 0;
-    translate: 0 -100%;
-    font-size: 2.5rem;
-    color: var(--primary-theme-color);
+  position: absolute;
+  top: 0;
+  translate: 0 -100%;
+  font-size: 2.5rem;
+  color: var(--primary-theme-color);
+  
+  @media (max-width: 768px) {
+    translate: 0 0;
+    position: static;
+    grid-column: span 2;
+  }
 `;
 
 export const CreateCanvasWrapper = styled(Canvas)`
@@ -164,4 +181,33 @@ export const SavePopupFooter = styled.div`
     > div > button {
         outline: none !important;
     }
+`;
+
+export const PanelButton = styled.div`
+  @media (min-width: 768px) {
+    display: none;
+  }
+
+  z-index: 5000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  padding: 20px;
+  border-radius: 10px;
+  background-size: 40px;
+  background-position: center;
+  transition: scale 0.2s ease;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 .5rem rgba(0,0,0,0.5); 
+  background-color: var(--primary-color-black);
+  background-image: url("https://freepngimg.com/icon/download/social_media/4100-google-bard.png");
+  
+  &:hover, &:focus, &:active {
+    scale: 1.1;
+  }
 `;

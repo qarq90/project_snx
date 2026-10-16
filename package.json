@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
     "@nextui-org/react": "^2.2.9",
     "@react-spring/three": "^9.6.1",
     "@react-three/drei": "^9.56.26",
@@ -31,7 +32,9 @@
     "react-colorful": "^5.6.1",
     "react-dom": "^18",
     "react-icons": "^4.12.0",
+    "react-loader-spinner": "^6.1.6",
     "react-quill": "^2.0.0",
+    "react-responsive": "^10.0.0",
     "styled-components": "^6.1.7",
     "three": "^0.160.1",
     "tls": "^0.0.1",
